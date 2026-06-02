@@ -10,6 +10,8 @@ var hovered=false
 func _ready() -> void:
 	pass # Replace with function body.
 
+func player1Cost(): #If we are player one make sure we can pay for the card
+	return get_parent().get_parent().player1 and Player1Manager.actions>=GameManager.cardCosts[cardType]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -23,7 +25,7 @@ func _process(_delta: float) -> void:
 		else:
 			GameManager.play(cardType)
 			queue_free()
-	if(Input.is_action_just_pressed("Click") and hovered and interactable):
+	if(Input.is_action_just_pressed("Click") and hovered and interactable and player1Cost()):
 		var new = self.duplicate()
 		new.interactable=false
 		new.followMouse=true

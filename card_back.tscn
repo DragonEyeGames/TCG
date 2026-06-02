@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cystrjnfrsd7"]
+
+[ext_resource type="Texture2D" uid="uid://cnxkgr6txsmps" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE 2.png" id="1_ppqbn"]
+
+[node name="CardBack" type="Control"]
+custom_minimum_size = Vector2(810, 1134)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CardBackVerse2" type="Sprite2D" parent="."]
+position = Vector2(405, 567)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_ppqbn")

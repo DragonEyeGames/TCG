@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=16 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -6,9 +6,11 @@
 [ext_resource type="Script" uid="uid://bho3dbvnom1gd" path="res://deck.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cpwoh7w2xui2a" path="res://Cards/ironbound_knight.tscn" id="3_kek77"]
 [ext_resource type="Texture2D" uid="uid://cnxkgr6txsmps" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE 2.png" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://cig0jpyem66ig" path="res://field.gd" id="4_4c57u"]
 [ext_resource type="Script" uid="uid://dgdcpgus1668y" path="res://discard.gd" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/warlord_of_ash.tscn" id="7_dg77c"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://dw3j21eryho0i" path="res://actionCounter.gd" id="10_efxa6"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -151,8 +153,12 @@ decklist = Array[int]([0, 0, 0, 4, 4, 4, 5, 5, 8, 8, 7, 7, 6, 6, 1, 1, 1, 8, 7, 
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
-[node name="Player1Field" type="Node2D" parent="."]
+[node name="Player1Field" type="Node2D" parent="." node_paths=PackedStringArray("field1", "field2", "field3")]
 position = Vector2(0, 49)
+script = ExtResource("4_4c57u")
+field1 = NodePath("Field")
+field2 = NodePath("Field2")
+field3 = NodePath("Field3")
 
 [node name="Champion" type="Sprite2D" parent="Player1Field"]
 visible = false
@@ -173,21 +179,18 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Field" type="Sprite2D" parent="Player1Field"]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 1820)
-scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Field2" type="Sprite2D" parent="Player1Field"]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(1000, 1820)
-scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Field3" type="Sprite2D" parent="Player1Field"]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-1000, 1820)
-scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Ironbound Knight" parent="Player1Field" instance=ExtResource("3_kek77")]
@@ -246,19 +249,22 @@ position = Vector2(-3563, 571)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Enemy Deck" type="Node2D" parent="Player2Field"]
-position = Vector2(-3560, 1746)
-
-[node name="card" type="Sprite2D" parent="Player2Field/Enemy Deck"]
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("3_lquwl")
-
 [node name="Warlord of Ash" parent="Player2Field" instance=ExtResource("7_dg77c")]
 offset_left = -405.0
 offset_top = 1253.0
 offset_right = 405.0
 offset_bottom = 2387.0
 interactable = false
+
+[node name="Enemy Deck" type="Node2D" parent="."]
+position = Vector2(-3560, -888)
+script = ExtResource("3_h2yge")
+player1 = false
+decklist = Array[int]([1, 1, 1, 6, 6, 6, 7, 7, 7, 5, 5, 5])
+
+[node name="card" type="Sprite2D" parent="Enemy Deck"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
 
 [node name="Hand" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.47058824)
@@ -279,6 +285,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_7mycd")
 }
 
+[node name="EnemyHand" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(-7, -3055)
+script = ExtResource("3_1bvp3")
+player1 = false
+
+[node name="CardHolder" type="HBoxContainer" parent="EnemyHand"]
+offset_left = -5053.0
+offset_top = -521.3334
+offset_right = 5053.0
+offset_bottom = 643.6666
+mouse_filter = 2
+alignment = 1
+
 [node name="Player1Actions" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -286,6 +306,7 @@ offset_left = -4921.0
 offset_top = 181.0
 offset_right = -2674.0
 offset_bottom = 1164.0
+script = ExtResource("10_efxa6")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Player1Actions"]

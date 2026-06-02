@@ -34,9 +34,47 @@ const cardTypes = {
 	cards.golden_opportunity: types.instant_arcana
 }
 
+const cardCosts = {
+	cards.midas_touch: 2,
+	cards.bugbear: 2,
+	cards.ironbound_knight: 0,
+	cards.warlord_of_ash: 0,
+	cards.temple_guardian: 2,
+	cards.quick_snack: 1,
+	cards.battle_cry: 1,
+	cards.heavy_swing: 1,
+	cards.golden_opportunity: 1
+}
+
+var player1Turn=true
+
+func endTurn():
+	player1Turn=!player1Turn
+	if(player1Turn):
+		Player1Manager.deck.draw_card()
+		Player1Manager.deck.draw_card()
+		Player1Manager.deck.draw_card()
+		Player1Manager.deck.draw_card()
+		Player1Manager.actions=3
+	else:
+		Player2Manager.deck.draw_card()
+		Player2Manager.deck.draw_card()
+		Player2Manager.deck.draw_card()
+		Player2Manager.deck.draw_card()
+		Player2Manager.actions=3
+
 func play(card: cards):
 	print(cards.keys()[card])
 	var card_type = cardTypes[card]
 	
+	if(Player1Manager.actions-cardCosts[card]<0):
+		Player1Manager.draw_card(card)
+		return
+	
+	Player1Manager.actions-=cardCosts[card]
+	
 	if(card_type==types.instant_arcana):
 		Player1Manager.discard(card)
+		
+	if(card_type==types.minion):
+		Player1Manager.permanent(card)
