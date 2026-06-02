@@ -1,29 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://6wgtkw7rqegg"]
+[gd_scene load_steps=10 format=3 uid="uid://6wgtkw7rqegg"]
 
 [ext_resource type="Texture2D" uid="uid://b8ois4vrwekyx" path="res://Crows TCG - Card Game Template/Artwork/M04.png" id="1_jj1tc"]
+[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_ykjtv"]
 [ext_resource type="Texture2D" uid="uid://csj32f5k85qfj" path="res://Crows TCG - Card Game Template/Front/MIGHT.png" id="2_u2tvo"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_3smsc"]
-[ext_resource type="Texture2D" uid="uid://dkvkt4e7ffnjl" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/47.png" id="4_u2tvo"]
+[ext_resource type="Texture2D" uid="uid://dkvkt4e7ffnjl" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/might.png" id="4_u2tvo"]
 [ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_8jk27"]
 [ext_resource type="Texture2D" uid="uid://ey1hh7uwf8c6" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/strike.png" id="6_ykjtv"]
 [ext_resource type="Texture2D" uid="uid://b146iopgxk24n" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/creature.png" id="7_fnbst"]
 [ext_resource type="Texture2D" uid="uid://cgteqyetd7kds" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/D6.png" id="8_0swqo"]
 
-[node name="Heavy Swing" type="Node2D"]
+[node name="Heavy Swing" type="Control"]
+custom_minimum_size = Vector2(810, 1134)
+layout_mode = 3
+anchors_preset = 0
+pivot_offset = Vector2(405, 567)
+script = ExtResource("1_ykjtv")
 
 [node name="Picture" type="Sprite2D" parent="."]
+position = Vector2(405, 351)
 texture = ExtResource("1_jj1tc")
 
 [node name="Front" type="Sprite2D" parent="."]
-position = Vector2(0, 216)
+position = Vector2(405, 567)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_u2tvo")
 
 [node name="Title" type="RichTextLabel" parent="."]
-offset_left = -325.0
-offset_top = 216.0
-offset_right = 325.0
-offset_bottom = 340.0
+layout_mode = 0
+offset_left = 80.0
+offset_top = 567.0
+offset_right = 730.0
+offset_bottom = 691.0
+mouse_filter = 2
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("3_3smsc")
 theme_override_font_sizes/normal_font_size = 49
@@ -32,10 +41,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Type" type="RichTextLabel" parent="."]
-offset_left = -166.0
-offset_top = 680.0
-offset_right = 158.0
-offset_bottom = 765.0
+layout_mode = 0
+offset_left = 239.0
+offset_top = 1031.0
+offset_right = 563.0
+offset_bottom = 1116.0
+mouse_filter = 2
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("3_3smsc")
 theme_override_font_sizes/normal_font_size = 25
@@ -44,10 +55,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cost" type="RichTextLabel" parent="."]
-offset_left = -368.0
-offset_top = -299.0
-offset_right = -211.0
-offset_bottom = -168.0
+layout_mode = 0
+offset_left = 37.0
+offset_top = 52.0
+offset_right = 194.0
+offset_bottom = 183.0
+mouse_filter = 2
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("3_3smsc")
 theme_override_font_sizes/normal_font_size = 61
@@ -56,18 +69,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Aspect" type="Sprite2D" parent="."]
-position = Vector2(-299, -118)
+position = Vector2(106, 233)
 scale = Vector2(0.435, 0.435)
 texture = ExtResource("4_u2tvo")
 
 [node name="Body" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
-offset_left = -347.0
-offset_top = 287.0
-offset_right = 183.26819
-offset_bottom = 607.38696
+offset_left = 58.0
+offset_top = 638.0
+offset_right = 588.2682
+offset_bottom = 958.38696
 scale = Vector2(1.305, 1.305)
+mouse_filter = 2
 
 [node name="Info" type="RichTextLabel" parent="Body"]
 layout_mode = 1
@@ -76,6 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("5_8jk27")
 theme_override_font_sizes/normal_font_size = 39
@@ -98,3 +112,6 @@ texture = ExtResource("7_fnbst")
 position = Vector2(309.06686, 184.14355)
 scale = Vector2(0.23, 0.23)
 texture = ExtResource("8_0swqo")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

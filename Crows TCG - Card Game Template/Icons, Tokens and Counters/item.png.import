@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cke3aoy78mw3y"
-path="res://.godot/imported/4.png-a88c748ce4c64b398c278a18d03e7fd3.ctex"
+uid="uid://d8voxg1vnadd"
+path="res://.godot/imported/item.png-5fb0d5c970de82ccb4555b975bfba375.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/4.png"
-dest_files=["res://.godot/imported/4.png-a88c748ce4c64b398c278a18d03e7fd3.ctex"]
+source_file="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/item.png"
+dest_files=["res://.godot/imported/item.png-5fb0d5c970de82ccb4555b975bfba375.ctex"]
 
 [params]
 

@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=16 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ebm875nd0tk6" path="res://Cards/Colorless/bugbear.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://hdcr3mb640td" path="res://hand.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://bho3dbvnom1gd" path="res://deck.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cpwoh7w2xui2a" path="res://Cards/Champion/ironbound_knight.tscn" id="3_kek77"]
 [ext_resource type="Texture2D" uid="uid://cnxkgr6txsmps" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE 2.png" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://x0i1g28ptnop" path="res://Cards/Colorless/temple_guardian.tscn" id="5_efxa6"]
+[ext_resource type="PackedScene" uid="uid://6wgtkw7rqegg" path="res://Cards/Might/heavy_swing.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://b2lysgtry83ub" path="res://Cards/Prospect/midas_touch.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/Champion/warlord_of_ash.tscn" id="7_dg77c"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
 
 [sub_resource type="Animation" id="Animation_1bvp3"]
 resource_name = "close"
@@ -31,7 +37,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1505), Vector2(0, 2270)]
+"values": [Vector2(0, 1900), Vector2(0, 3000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.47058824)]
 }
 
 [sub_resource type="Animation" id="Animation_lquwl"]
@@ -46,7 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.5, 1.5)]
+"values": [Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -58,7 +76,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-425.00003, 1505)]
+"values": [Vector2(0, 3000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.47058824)]
 }
 
 [sub_resource type="Animation" id="Animation_7mycd"]
@@ -86,7 +116,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 2270), Vector2(0, 1505)]
+"values": [Vector2(0, 3000), Vector2(0, 1900)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.47058824), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7mycd"]
@@ -98,38 +140,129 @@ _data = {
 
 [node name="Main" type="Node2D"]
 
-[node name="CardBackVerse2" type="Sprite2D" parent="."]
-position = Vector2(3823, 1750)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_0xm2m")
-
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.22, 0.22)
+zoom = Vector2(0.19, 0.19)
 
-[node name="Deck" type="Node2D" parent="."]
-position = Vector2(3821, 593)
-script = ExtResource("3_h2yge")
+[node name="Player1Field" type="Node2D" parent="."]
+position = Vector2(0, 49)
 
-[node name="card" type="Sprite2D" parent="Deck"]
+[node name="Champion" type="Sprite2D" parent="Player1Field"]
+position = Vector2(0, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
-[node name="card2" type="Sprite2D" parent="."]
-position = Vector2(-3728, -1794.0001)
+[node name="Equipment" type="Sprite2D" parent="Player1Field"]
+position = Vector2(1000, 610)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("3_lquwl")
+texture = ExtResource("1_0xm2m")
 
-[node name="Enemy Deck" type="Node2D" parent="."]
-position = Vector2(-3723.9998, -593)
+[node name="Equipment2" type="Sprite2D" parent="Player1Field"]
+position = Vector2(-1000, 610)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Field" type="Sprite2D" parent="Player1Field"]
+position = Vector2(0, 1820)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Field2" type="Sprite2D" parent="Player1Field"]
+position = Vector2(1000, 1820)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Field3" type="Sprite2D" parent="Player1Field"]
+position = Vector2(-1000, 1820)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Ironbound Knight" parent="Player1Field" instance=ExtResource("3_kek77")]
+offset_left = -405.0
+offset_top = 43.0
+offset_right = 405.0
+offset_bottom = 1177.0
+
+[node name="Discard" type="Sprite2D" parent="Player1Field"]
+position = Vector2(3145, 1880)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Deck" type="Node2D" parent="Player1Field"]
+position = Vector2(3143, 723)
 script = ExtResource("3_h2yge")
 
-[node name="card" type="Sprite2D" parent="Enemy Deck"]
+[node name="card" type="Sprite2D" parent="Player1Field/Deck"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Temple Guardian" parent="Player1Field" instance=ExtResource("5_efxa6")]
+offset_left = 595.0
+offset_top = 1253.0
+offset_right = 1405.0
+offset_bottom = 2387.0
+
+[node name="Player2Field" type="Node2D" parent="."]
+position = Vector2(0, -2634)
+
+[node name="Champion" type="Sprite2D" parent="Player2Field"]
+position = Vector2(0, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
+
+[node name="Equipment" type="Sprite2D" parent="Player2Field"]
+position = Vector2(1000, 610)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Equipment2" type="Sprite2D" parent="Player2Field"]
+position = Vector2(-1000, 610)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Field" type="Sprite2D" parent="Player2Field"]
+position = Vector2(0, 1820.105)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Field2" type="Sprite2D" parent="Player2Field"]
+position = Vector2(1000, 1820.105)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Field3" type="Sprite2D" parent="Player2Field"]
+position = Vector2(-1000, 1820.105)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Enemy Discard" type="Sprite2D" parent="Player2Field"]
+position = Vector2(-3563, 571)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Enemy Deck" type="Node2D" parent="Player2Field"]
+position = Vector2(-3560, 1746)
+script = ExtResource("3_h2yge")
+
+[node name="card" type="Sprite2D" parent="Player2Field/Enemy Deck"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Warlord of Ash" parent="Player2Field" instance=ExtResource("7_dg77c")]
+offset_left = -405.0
+offset_top = 1253.0
+offset_right = 405.0
+offset_bottom = 2387.0
+
+[node name="Bugbear" parent="Player2Field" instance=ExtResource("2_h2yge")]
+offset_left = -405.0
+offset_top = 43.0
+offset_right = 405.0
+offset_bottom = 1177.0
 
 [node name="Hand" type="Node2D" parent="."]
-position = Vector2(-425.00003, 1505)
-scale = Vector2(1.5, 1.5)
+modulate = Color(1, 1, 1, 0.47058824)
+z_index = 1
+position = Vector2(0, 3000)
 script = ExtResource("3_1bvp3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hand"]
@@ -143,16 +276,100 @@ alignment = 1
 [node name="Bugbear" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
 
+[node name="Heavy Swing" parent="Hand/HBoxContainer" instance=ExtResource("6_272bh")]
+layout_mode = 2
+
+[node name="Midas Touch" parent="Hand/HBoxContainer" instance=ExtResource("7_5vw27")]
+layout_mode = 2
+
 [node name="Bugbear2" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
-layout_mode = 2
-
-[node name="Bugbear3" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
-layout_mode = 2
-
-[node name="Bugbear4" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
 
 [node name="animator" type="AnimationPlayer" parent="Hand"]
 libraries = {
 &"": SubResource("AnimationLibrary_7mycd")
 }
+
+[node name="Player1Actions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4921.0
+offset_top = 181.0
+offset_right = -2674.0
+offset_bottom = 1164.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Player1Actions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Player1Actions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 19.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player1Actions"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 282.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("8_5vw27")
+theme_override_font_sizes/normal_font_size = 120
+text = "Actions Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Player1Actions"]
+anchors_preset = 0
+offset_left = 628.0
+offset_top = 306.0
+offset_right = 1638.0
+offset_bottom = 938.0
+
+[node name="ColorRect" type="ColorRect" parent="Player1Actions/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Player1Actions/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 19.0
+offset_right = -23.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35156325, 0.3515627, 0.3515629, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player1Actions/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 610.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("8_5vw27")
+theme_override_font_sizes/normal_font_size = 300
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
