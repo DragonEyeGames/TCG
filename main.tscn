@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=14 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://bho3dbvnom1gd" path="res://deck.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cpwoh7w2xui2a" path="res://Cards/ironbound_knight.tscn" id="3_kek77"]
 [ext_resource type="Texture2D" uid="uid://cnxkgr6txsmps" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE 2.png" id="3_lquwl"]
-[ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://warlord_of_ash.tscn" id="7_dg77c"]
+[ext_resource type="Script" uid="uid://dgdcpgus1668y" path="res://discard.gd" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/warlord_of_ash.tscn" id="7_dg77c"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
@@ -194,9 +195,12 @@ offset_left = -405.0
 offset_top = 43.0
 offset_right = 405.0
 offset_bottom = 1177.0
+interactable = false
 
 [node name="Discard" type="Sprite2D" parent="Player1Field"]
-position = Vector2(3145, 1880)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(2733, 1356)
+script = ExtResource("5_kek77")
 
 [node name="Player2Field" type="Node2D" parent="."]
 position = Vector2(0, -2634)
@@ -254,6 +258,7 @@ offset_left = -405.0
 offset_top = 1253.0
 offset_right = 405.0
 offset_bottom = 2387.0
+interactable = false
 
 [node name="Hand" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.47058824)

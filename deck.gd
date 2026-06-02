@@ -15,14 +15,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(Input.is_action_just_pressed("Click")):
+	if(Input.is_action_just_pressed("Draw")):
 		draw_card()
 
 func draw_card():
 	if(len(decklist)<=0):
 		return
 	get_child(-1).queue_free()
-	var cardName = GameManager.cards.keys()[decklist[0]]
-	print(str(cardName))
 	Player1Manager.draw_card(decklist[0])
 	decklist.remove_at(0)

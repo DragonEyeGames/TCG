@@ -1,31 +1,33 @@
 [gd_scene load_steps=11 format=3 uid="uid://boeoy6aj5lekt"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_fiq0e"]
-[ext_resource type="Texture2D" uid="uid://dlyyeyg8u5x0j" path="res://Crows TCG - Card Game Template/Artwork/I07.png" id="2_fiq0e"]
-[ext_resource type="Texture2D" uid="uid://bgs16lxf3yunk" path="res://Crows TCG - Card Game Template/Front/UNIVERSAL.png" id="3_dbvba"]
-[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_usd1s"]
-[ext_resource type="Texture2D" uid="uid://d8voxg1vnadd" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/item.png" id="5_7mfp1"]
-[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="6_22rpy"]
-[ext_resource type="Texture2D" uid="uid://cgteqyetd7kds" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/D6.png" id="7_7mfp1"]
-[ext_resource type="Texture2D" uid="uid://tud82tfrygav" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/minion.png" id="8_usd1s"]
-[ext_resource type="Texture2D" uid="uid://0yoiyhflqlel" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/D4.png" id="9_kp5yh"]
-[ext_resource type="Texture2D" uid="uid://cke3aoy78mw3y" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/champion.png" id="9_usd1s"]
+[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_qpq4s"]
+[ext_resource type="Texture2D" uid="uid://dlyyeyg8u5x0j" path="res://Crows TCG - Card Game Template/Artwork/I07.png" id="2_3vdym"]
+[ext_resource type="Texture2D" uid="uid://bgs16lxf3yunk" path="res://Crows TCG - Card Game Template/Front/UNIVERSAL.png" id="3_buovp"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_uccs0"]
+[ext_resource type="Texture2D" uid="uid://d8voxg1vnadd" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/item.png" id="5_isb8h"]
+[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="6_to8a3"]
+[ext_resource type="Texture2D" uid="uid://cgteqyetd7kds" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/D6.png" id="7_m5c0w"]
+[ext_resource type="Texture2D" uid="uid://tud82tfrygav" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/minion.png" id="8_xd5bg"]
+[ext_resource type="Texture2D" uid="uid://cke3aoy78mw3y" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/champion.png" id="9_ox2he"]
+[ext_resource type="Texture2D" uid="uid://0yoiyhflqlel" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/D4.png" id="10_6cfby"]
 
 [node name="Quick Snack" type="Control"]
 custom_minimum_size = Vector2(810, 1134)
 layout_mode = 3
 anchors_preset = 0
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_fiq0e")
+script = ExtResource("1_qpq4s")
+cardType = 5
 
 [node name="Picture" type="Sprite2D" parent="."]
 position = Vector2(405, 351)
-texture = ExtResource("2_fiq0e")
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("2_3vdym")
 
 [node name="Front" type="Sprite2D" parent="."]
 position = Vector2(405, 567)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("3_dbvba")
+texture = ExtResource("3_buovp")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -35,7 +37,7 @@ offset_right = 804.0
 offset_bottom = 691.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_usd1s")
+theme_override_fonts/normal_font = ExtResource("4_uccs0")
 theme_override_font_sizes/normal_font_size = 49
 text = "Quick Snack"
 horizontal_alignment = 1
@@ -49,7 +51,7 @@ offset_right = 563.0
 offset_bottom = 1116.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_usd1s")
+theme_override_fonts/normal_font = ExtResource("4_uccs0")
 theme_override_font_sizes/normal_font_size = 25
 text = "Arcana"
 horizontal_alignment = 1
@@ -63,7 +65,7 @@ offset_right = 194.0
 offset_bottom = 183.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_usd1s")
+theme_override_fonts/normal_font = ExtResource("4_uccs0")
 theme_override_font_sizes/normal_font_size = 61
 text = "1"
 horizontal_alignment = 1
@@ -72,7 +74,7 @@ vertical_alignment = 1
 [node name="Aspect" type="Sprite2D" parent="."]
 position = Vector2(106, 233)
 scale = Vector2(0.435, 0.435)
-texture = ExtResource("5_7mfp1")
+texture = ExtResource("5_isb8h")
 
 [node name="Body" type="Control" parent="."]
 anchors_preset = 0
@@ -92,7 +94,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("6_22rpy")
+theme_override_fonts/normal_font = ExtResource("6_to8a3")
 theme_override_font_sizes/normal_font_size = 39
 text = "Heal up to   from a .  you control
 or
@@ -103,22 +105,22 @@ vertical_alignment = 1
 [node name="Icon3" type="Sprite2D" parent="Body"]
 position = Vector2(291.78082, 66.43836)
 scale = Vector2(0.17624523, 0.17624523)
-texture = ExtResource("7_7mfp1")
+texture = ExtResource("7_m5c0w")
 
 [node name="Icon5" type="Sprite2D" parent="Body"]
 position = Vector2(491.17645, 70.58821)
 scale = Vector2(0.17624523, 0.17624523)
-texture = ExtResource("8_usd1s")
+texture = ExtResource("8_xd5bg")
 
 [node name="Icon6" type="Sprite2D" parent="Body"]
 position = Vector2(493.38235, 208.08823)
 scale = Vector2(0.17624523, 0.17624523)
-texture = ExtResource("9_usd1s")
+texture = ExtResource("9_ox2he")
 
 [node name="Icon4" type="Sprite2D" parent="Body"]
 position = Vector2(285.8209, 205.97014)
 scale = Vector2(0.17624523, 0.17624523)
-texture = ExtResource("9_kp5yh")
+texture = ExtResource("10_6cfby")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

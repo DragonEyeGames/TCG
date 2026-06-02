@@ -8,9 +8,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(get_global_mouse_position().y>2500 and not open):
+	if(get_global_mouse_position().y>2100 and not open):
 		open=true
+		Player1Manager.handOpen=true
 		$animator.play("open")
 	elif(get_global_mouse_position().y<1000 and open):
 		open=false
 		$animator.play("close")
+	Player1Manager.handOpen=open

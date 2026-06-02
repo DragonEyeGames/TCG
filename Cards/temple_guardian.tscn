@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://x0i1g28ptnop"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_juk1e"]
-[ext_resource type="Texture2D" uid="uid://cpsk31jovgs2o" path="res://Crows TCG - Card Game Template/Artwork/D (5).png" id="2_bd6od"]
-[ext_resource type="Texture2D" uid="uid://biiebordxtl4e" path="res://Crows TCG - Card Game Template/Front/DIVINE.png" id="3_juk1e"]
-[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_xdll5"]
-[ext_resource type="Texture2D" uid="uid://bynplvug4k51a" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/divine.png" id="5_b54aj"]
-[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="6_8rys8"]
-[ext_resource type="Texture2D" uid="uid://cke3aoy78mw3y" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/champion.png" id="7_ipnm5"]
-[ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="9_i75ly"]
-[ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="10_5rff8"]
+[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_tnid0"]
+[ext_resource type="Texture2D" uid="uid://cpsk31jovgs2o" path="res://Crows TCG - Card Game Template/Artwork/D (5).png" id="2_nj56g"]
+[ext_resource type="Texture2D" uid="uid://biiebordxtl4e" path="res://Crows TCG - Card Game Template/Front/DIVINE.png" id="3_0hfi8"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_l20xq"]
+[ext_resource type="Texture2D" uid="uid://bynplvug4k51a" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/divine.png" id="5_8qmek"]
+[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="6_1jb1y"]
+[ext_resource type="Texture2D" uid="uid://cke3aoy78mw3y" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/champion.png" id="7_1fo7b"]
+[ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="8_en33b"]
+[ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="9_ad40n"]
 
 [node name="Temple Guardian" type="Control"]
 custom_minimum_size = Vector2(810, 1134)
@@ -16,17 +16,19 @@ layout_mode = 3
 anchor_right = 0.421875
 anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_juk1e")
+script = ExtResource("1_tnid0")
+cardType = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Picture" type="Sprite2D" parent="."]
 position = Vector2(405, 351)
-texture = ExtResource("2_bd6od")
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("2_nj56g")
 
 [node name="Front" type="Sprite2D" parent="."]
 position = Vector2(405, 567)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("3_juk1e")
+texture = ExtResource("3_0hfi8")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -36,7 +38,7 @@ offset_right = 809.0
 offset_bottom = 714.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_xdll5")
+theme_override_fonts/normal_font = ExtResource("4_l20xq")
 theme_override_font_sizes/normal_font_size = 42
 text = "Temple guardian"
 horizontal_alignment = 1
@@ -50,7 +52,7 @@ offset_right = 563.0
 offset_bottom = 1116.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_xdll5")
+theme_override_fonts/normal_font = ExtResource("4_l20xq")
 theme_override_font_sizes/normal_font_size = 25
 text = "Creature"
 horizontal_alignment = 1
@@ -64,7 +66,7 @@ offset_right = 194.0
 offset_bottom = 183.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_xdll5")
+theme_override_fonts/normal_font = ExtResource("4_l20xq")
 theme_override_font_sizes/normal_font_size = 61
 text = "2"
 horizontal_alignment = 1
@@ -73,7 +75,7 @@ vertical_alignment = 1
 [node name="Aspect" type="Sprite2D" parent="."]
 position = Vector2(106, 233)
 scale = Vector2(0.435, 0.435)
-texture = ExtResource("5_b54aj")
+texture = ExtResource("5_8qmek")
 
 [node name="Body" type="Control" parent="."]
 anchors_preset = 0
@@ -97,7 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("6_8rys8")
+theme_override_fonts/normal_font = ExtResource("6_1jb1y")
 theme_override_font_sizes/normal_font_size = 34
 text = "Whenever your   would take damage, you may redirect any amount of that damage to this creature."
 horizontal_alignment = 1
@@ -106,7 +108,7 @@ vertical_alignment = 1
 [node name="Icon5" type="Sprite2D" parent="Body"]
 position = Vector2(337.80917, 63.60423)
 scale = Vector2(0.175, 0.175)
-texture = ExtResource("7_ipnm5")
+texture = ExtResource("7_1fo7b")
 
 [node name="Armor" type="Control" parent="."]
 anchors_preset = 0
@@ -120,7 +122,7 @@ mouse_filter = 2
 [node name="57" type="Sprite2D" parent="Armor"]
 position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
-texture = ExtResource("9_i75ly")
+texture = ExtResource("8_en33b")
 
 [node name="Cost" type="RichTextLabel" parent="Armor"]
 layout_mode = 1
@@ -133,7 +135,7 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_xdll5")
+theme_override_fonts/normal_font = ExtResource("4_l20xq")
 theme_override_font_sizes/normal_font_size = 55
 text = "10"
 horizontal_alignment = 1
@@ -151,7 +153,7 @@ mouse_filter = 2
 [node name="57" type="Sprite2D" parent="Health"]
 position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
-texture = ExtResource("10_5rff8")
+texture = ExtResource("9_ad40n")
 
 [node name="Cost" type="RichTextLabel" parent="Health"]
 layout_mode = 1
@@ -168,7 +170,7 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_xdll5")
+theme_override_fonts/normal_font = ExtResource("4_l20xq")
 theme_override_font_sizes/normal_font_size = 55
 text = "12"
 horizontal_alignment = 1

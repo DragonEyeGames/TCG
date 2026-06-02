@@ -18,10 +18,12 @@ anchor_right = 0.421875
 anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
 script = ExtResource("1_hyyma")
+cardType = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Picture" type="Sprite2D" parent="."]
 position = Vector2(405, 351)
+scale = Vector2(1.02, 1.02)
 texture = ExtResource("2_hyyma")
 
 [node name="Front" type="Sprite2D" parent="."]
