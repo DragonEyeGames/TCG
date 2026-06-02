@@ -16,13 +16,7 @@ func _ready() -> void:
 		card.position.x=randi_range(-10, 10)
 		original=card
 	decklist.shuffle()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if(Input.is_action_just_pressed("Draw") and player1):
-		draw_card()
-
+	
 func draw_card():
 	if(len(decklist)<=0):
 		return

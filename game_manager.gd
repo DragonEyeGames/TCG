@@ -46,7 +46,7 @@ const cardCosts = {
 	cards.golden_opportunity: 1
 }
 
-var player1Turn=true
+var player1Turn=false
 
 func endTurn():
 	player1Turn=!player1Turn
@@ -57,6 +57,9 @@ func endTurn():
 		Player1Manager.deck.draw_card()
 		Player1Manager.actions=3
 	else:
+		for card in Player1Manager.hand.get_node("CardHolder").get_children():
+			Player1Manager.discard(card.cardType)
+			card.queue_free()
 		Player2Manager.deck.draw_card()
 		Player2Manager.deck.draw_card()
 		Player2Manager.deck.draw_card()
