@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://0yoiyhflqlel" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/D4.png" id="9_kp5yh"]
 [ext_resource type="Texture2D" uid="uid://cke3aoy78mw3y" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/champion.png" id="9_usd1s"]
 
-[node name="Opportune Snack" type="Control"]
+[node name="Quick Snack" type="Control"]
 custom_minimum_size = Vector2(810, 1134)
 layout_mode = 3
 anchors_preset = 0

@@ -1,16 +1,52 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=13 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://ebm875nd0tk6" path="res://Cards/Colorless/bugbear.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="Script" uid="uid://hdcr3mb640td" path="res://hand.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://bho3dbvnom1gd" path="res://deck.gd" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cpwoh7w2xui2a" path="res://Cards/Champion/ironbound_knight.tscn" id="3_kek77"]
+[ext_resource type="PackedScene" uid="uid://cpwoh7w2xui2a" path="res://Cards/ironbound_knight.tscn" id="3_kek77"]
 [ext_resource type="Texture2D" uid="uid://cnxkgr6txsmps" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE 2.png" id="3_lquwl"]
-[ext_resource type="PackedScene" uid="uid://x0i1g28ptnop" path="res://Cards/Colorless/temple_guardian.tscn" id="5_efxa6"]
-[ext_resource type="PackedScene" uid="uid://6wgtkw7rqegg" path="res://Cards/Might/heavy_swing.tscn" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://b2lysgtry83ub" path="res://Cards/Prospect/midas_touch.tscn" id="7_5vw27"]
-[ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/Champion/warlord_of_ash.tscn" id="7_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://warlord_of_ash.tscn" id="7_dg77c"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
+
+[sub_resource type="Animation" id="Animation_lquwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.47058824)]
+}
 
 [sub_resource type="Animation" id="Animation_1bvp3"]
 resource_name = "close"
@@ -50,45 +86,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.47058824)]
-}
-
-[sub_resource type="Animation" id="Animation_lquwl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 3000)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.47058824)]
 }
 
 [sub_resource type="Animation" id="Animation_7mycd"]
@@ -139,39 +136,55 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_5vw27")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.19, 0.19)
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(3143, 772)
+script = ExtResource("3_h2yge")
+decklist = Array[int]([0, 0, 0, 4, 4, 4, 5, 5, 8, 8, 7, 7, 6, 6, 1, 1, 1, 8, 7, 6])
+
+[node name="card" type="Sprite2D" parent="Deck"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
 
 [node name="Player1Field" type="Node2D" parent="."]
 position = Vector2(0, 49)
 
 [node name="Champion" type="Sprite2D" parent="Player1Field"]
+visible = false
 position = Vector2(0, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Equipment" type="Sprite2D" parent="Player1Field"]
+visible = false
 position = Vector2(1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Equipment2" type="Sprite2D" parent="Player1Field"]
+visible = false
 position = Vector2(-1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Field" type="Sprite2D" parent="Player1Field"]
+visible = false
 position = Vector2(0, 1820)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Field2" type="Sprite2D" parent="Player1Field"]
+visible = false
 position = Vector2(1000, 1820)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
 [node name="Field3" type="Sprite2D" parent="Player1Field"]
+visible = false
 position = Vector2(-1000, 1820)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
@@ -184,52 +197,42 @@ offset_bottom = 1177.0
 
 [node name="Discard" type="Sprite2D" parent="Player1Field"]
 position = Vector2(3145, 1880)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_0xm2m")
-
-[node name="Deck" type="Node2D" parent="Player1Field"]
-position = Vector2(3143, 723)
-script = ExtResource("3_h2yge")
-
-[node name="card" type="Sprite2D" parent="Player1Field/Deck"]
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_0xm2m")
-
-[node name="Temple Guardian" parent="Player1Field" instance=ExtResource("5_efxa6")]
-offset_left = 595.0
-offset_top = 1253.0
-offset_right = 1405.0
-offset_bottom = 2387.0
 
 [node name="Player2Field" type="Node2D" parent="."]
 position = Vector2(0, -2634)
 
 [node name="Champion" type="Sprite2D" parent="Player2Field"]
+visible = false
 position = Vector2(0, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
 [node name="Equipment" type="Sprite2D" parent="Player2Field"]
+visible = false
 position = Vector2(1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
 [node name="Equipment2" type="Sprite2D" parent="Player2Field"]
+visible = false
 position = Vector2(-1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
 [node name="Field" type="Sprite2D" parent="Player2Field"]
+visible = false
 position = Vector2(0, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
 [node name="Field2" type="Sprite2D" parent="Player2Field"]
+visible = false
 position = Vector2(1000, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
 [node name="Field3" type="Sprite2D" parent="Player2Field"]
+visible = false
 position = Vector2(-1000, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
@@ -241,7 +244,6 @@ texture = ExtResource("3_lquwl")
 
 [node name="Enemy Deck" type="Node2D" parent="Player2Field"]
 position = Vector2(-3560, 1746)
-script = ExtResource("3_h2yge")
 
 [node name="card" type="Sprite2D" parent="Player2Field/Enemy Deck"]
 scale = Vector2(0.45, 0.45)
@@ -253,37 +255,19 @@ offset_top = 1253.0
 offset_right = 405.0
 offset_bottom = 2387.0
 
-[node name="Bugbear" parent="Player2Field" instance=ExtResource("2_h2yge")]
-offset_left = -405.0
-offset_top = 43.0
-offset_right = 405.0
-offset_bottom = 1177.0
-
 [node name="Hand" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.47058824)
 z_index = 1
 position = Vector2(0, 3000)
 script = ExtResource("3_1bvp3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Hand"]
-offset_left = -2910.6667
+[node name="CardHolder" type="HBoxContainer" parent="Hand"]
+offset_left = -4583.3335
 offset_top = -521.3334
-offset_right = 2911.3333
+offset_right = 4497.3335
 offset_bottom = 643.6666
 mouse_filter = 2
 alignment = 1
-
-[node name="Bugbear" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
-layout_mode = 2
-
-[node name="Heavy Swing" parent="Hand/HBoxContainer" instance=ExtResource("6_272bh")]
-layout_mode = 2
-
-[node name="Midas Touch" parent="Hand/HBoxContainer" instance=ExtResource("7_5vw27")]
-layout_mode = 2
-
-[node name="Bugbear2" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
-layout_mode = 2
 
 [node name="animator" type="AnimationPlayer" parent="Hand"]
 libraries = {

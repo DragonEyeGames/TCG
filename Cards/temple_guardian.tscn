@@ -1,45 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://ebm875nd0tk6"]
+[gd_scene load_steps=10 format=3 uid="uid://x0i1g28ptnop"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_keaa4"]
-[ext_resource type="Texture2D" uid="uid://c6v3fdujl4woh" path="res://Crows TCG - Card Game Template/Artwork/C06.png" id="1_rw2h8"]
-[ext_resource type="Texture2D" uid="uid://bgs16lxf3yunk" path="res://Crows TCG - Card Game Template/Front/UNIVERSAL.png" id="2_keaa4"]
-[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_s742a"]
-[ext_resource type="Texture2D" uid="uid://bc7kasvsqpdvk" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/35.png" id="4_w0gpn"]
-[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_2kgep"]
-[ext_resource type="Texture2D" uid="uid://ey1hh7uwf8c6" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/strike.png" id="6_rw2h8"]
-[ext_resource type="Texture2D" uid="uid://b146iopgxk24n" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/creature.png" id="7_keaa4"]
-[ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="8_cqdjt"]
-[ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="9_ys58p"]
+[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_juk1e"]
+[ext_resource type="Texture2D" uid="uid://cpsk31jovgs2o" path="res://Crows TCG - Card Game Template/Artwork/D (5).png" id="2_bd6od"]
+[ext_resource type="Texture2D" uid="uid://biiebordxtl4e" path="res://Crows TCG - Card Game Template/Front/DIVINE.png" id="3_juk1e"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_xdll5"]
+[ext_resource type="Texture2D" uid="uid://bynplvug4k51a" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/divine.png" id="5_b54aj"]
+[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="6_8rys8"]
+[ext_resource type="Texture2D" uid="uid://cke3aoy78mw3y" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/champion.png" id="7_ipnm5"]
+[ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="9_i75ly"]
+[ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="10_5rff8"]
 
-[node name="Bugbear" type="Control"]
+[node name="Temple Guardian" type="Control"]
 custom_minimum_size = Vector2(810, 1134)
 layout_mode = 3
 anchor_right = 0.421875
 anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_keaa4")
+script = ExtResource("1_juk1e")
 metadata/_edit_use_anchors_ = true
 
 [node name="Picture" type="Sprite2D" parent="."]
 position = Vector2(405, 351)
-texture = ExtResource("1_rw2h8")
+texture = ExtResource("2_bd6od")
 
 [node name="Front" type="Sprite2D" parent="."]
 position = Vector2(405, 567)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("2_keaa4")
+texture = ExtResource("3_juk1e")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 546.0
-offset_right = 801.0
-offset_bottom = 722.0
+offset_left = 13.0
+offset_top = 538.0
+offset_right = 809.0
+offset_bottom = 714.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_s742a")
-theme_override_font_sizes/normal_font_size = 55
-text = "Bugbear"
+theme_override_fonts/normal_font = ExtResource("4_xdll5")
+theme_override_font_sizes/normal_font_size = 42
+text = "Temple guardian"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -51,7 +50,7 @@ offset_right = 563.0
 offset_bottom = 1116.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_fonts/normal_font = ExtResource("4_xdll5")
 theme_override_font_sizes/normal_font_size = 25
 text = "Creature"
 horizontal_alignment = 1
@@ -65,7 +64,7 @@ offset_right = 194.0
 offset_bottom = 183.0
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_fonts/normal_font = ExtResource("4_xdll5")
 theme_override_font_sizes/normal_font_size = 61
 text = "2"
 horizontal_alignment = 1
@@ -74,7 +73,7 @@ vertical_alignment = 1
 [node name="Aspect" type="Sprite2D" parent="."]
 position = Vector2(106, 233)
 scale = Vector2(0.435, 0.435)
-texture = ExtResource("4_w0gpn")
+texture = ExtResource("5_b54aj")
 
 [node name="Body" type="Control" parent="."]
 anchors_preset = 0
@@ -90,29 +89,24 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 13.427562
-offset_top = -1.4134276
-offset_right = -10.126831
-offset_bottom = -1.4134216
+offset_left = 7.0671377
+offset_top = -19.081272
+offset_right = -16.487244
+offset_bottom = -19.081268
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("5_2kgep")
-theme_override_font_sizes/normal_font_size = 39
-text = "On a successful .  deal 1 damage to each enemy   ."
+theme_override_fonts/normal_font = ExtResource("6_8rys8")
+theme_override_font_sizes/normal_font_size = 34
+text = "Whenever your   would take damage, you may redirect any amount of that damage to this creature."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon3" type="Sprite2D" parent="Body"]
-position = Vector2(448.76324, 110.95407)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_rw2h8")
-
 [node name="Icon5" type="Sprite2D" parent="Body"]
-position = Vector2(323.6749, 205.6537)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_keaa4")
+position = Vector2(337.80917, 63.60423)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("7_ipnm5")
 
 [node name="Armor" type="Control" parent="."]
 anchors_preset = 0
@@ -126,7 +120,7 @@ mouse_filter = 2
 [node name="57" type="Sprite2D" parent="Armor"]
 position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
-texture = ExtResource("8_cqdjt")
+texture = ExtResource("9_i75ly")
 
 [node name="Cost" type="RichTextLabel" parent="Armor"]
 layout_mode = 1
@@ -139,9 +133,9 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_fonts/normal_font = ExtResource("4_xdll5")
 theme_override_font_sizes/normal_font_size = 55
-text = "13"
+text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -157,7 +151,7 @@ mouse_filter = 2
 [node name="57" type="Sprite2D" parent="Health"]
 position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
-texture = ExtResource("9_ys58p")
+texture = ExtResource("10_5rff8")
 
 [node name="Cost" type="RichTextLabel" parent="Health"]
 layout_mode = 1
@@ -174,9 +168,9 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_fonts/normal_font = ExtResource("4_xdll5")
 theme_override_font_sizes/normal_font_size = 55
-text = "6"
+text = "12"
 horizontal_alignment = 1
 vertical_alignment = 1
 
