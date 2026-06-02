@@ -48,26 +48,43 @@ const cardCosts = {
 
 var player1Turn=false
 
+var swapping=false
+
 func endTurn():
+	swapping=true
 	player1Turn=!player1Turn
 	if(player1Turn):
+		print("Player1's turn")
+		for card in Player2Manager.hand.get_node("CardHolder").get_children():
+			Player2Manager.discard(card.cardType)
+			card.queue_free()
 		Player1Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player1Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player1Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player1Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player1Manager.actions=3
+		swapping=false
 	else:
+		print("Player2's turn")
 		for card in Player1Manager.hand.get_node("CardHolder").get_children():
 			Player1Manager.discard(card.cardType)
 			card.queue_free()
 		Player2Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player2Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player2Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player2Manager.deck.draw_card()
+		await get_tree().process_frame
 		Player2Manager.actions=3
+		endTurn()
 
 func play(card: cards):
-	print(cards.keys()[card])
 	var card_type = cardTypes[card]
 	
 	if(Player1Manager.actions-cardCosts[card]<0):

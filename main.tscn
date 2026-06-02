@@ -245,9 +245,11 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
 [node name="Enemy Discard" type="Sprite2D" parent="Player2Field"]
-position = Vector2(-3563, 571)
-scale = Vector2(0.45, 0.45)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-3966, 93)
 texture = ExtResource("3_lquwl")
+script = ExtResource("5_kek77")
+player1 = false
 
 [node name="Warlord of Ash" parent="Player2Field" instance=ExtResource("7_dg77c")]
 offset_left = -405.0
