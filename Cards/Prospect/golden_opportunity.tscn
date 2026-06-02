@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://4hn8iun0tijt"]
 
-[ext_resource type="Texture2D" uid="uid://bn87tsbfctvge" path="res://Crows TCG - Card Game Template/Artwork/sprite-1-5.png" id="1_a8fqb"]
-[ext_resource type="Texture2D" uid="uid://du1pwishm3m27" path="res://Crows TCG - Card Game Template/Front/PROSPECT.png" id="2_a8fqb"]
-[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_v1wxp"]
-[ext_resource type="Texture2D" uid="uid://s8vuwkcxuac1" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/40.png" id="4_r6p1b"]
-[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_nmkkm"]
-[ext_resource type="Texture2D" uid="uid://2ee2lqnslcwd" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/16.png" id="6_v1wxp"]
+[ext_resource type="Texture2D" uid="uid://bn87tsbfctvge" path="res://Crows TCG - Card Game Template/Artwork/sprite-1-5.png" id="1_oortt"]
+[ext_resource type="Texture2D" uid="uid://du1pwishm3m27" path="res://Crows TCG - Card Game Template/Front/PROSPECT.png" id="2_inw0o"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_rfp6p"]
+[ext_resource type="Texture2D" uid="uid://s8vuwkcxuac1" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/40.png" id="4_apklb"]
+[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_k1ocj"]
+[ext_resource type="Texture2D" uid="uid://2ee2lqnslcwd" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/16.png" id="6_wbh2x"]
 
-[node name="Heavy Swing" type="Node2D"]
+[node name="Golden Opportunity" type="Node2D"]
 
 [node name="Picture" type="Sprite2D" parent="."]
-texture = ExtResource("1_a8fqb")
+texture = ExtResource("1_oortt")
 
 [node name="Front" type="Sprite2D" parent="."]
 position = Vector2(0, 216)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("2_a8fqb")
+texture = ExtResource("2_inw0o")
 
 [node name="Title" type="RichTextLabel" parent="."]
 offset_left = -400.0
@@ -23,7 +23,7 @@ offset_top = 195.0
 offset_right = 396.0
 offset_bottom = 371.0
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_v1wxp")
+theme_override_fonts/normal_font = ExtResource("3_rfp6p")
 theme_override_font_sizes/normal_font_size = 37
 text = "Golden Opportunity"
 horizontal_alignment = 1
@@ -35,7 +35,7 @@ offset_top = 680.0
 offset_right = 158.0
 offset_bottom = 765.0
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_v1wxp")
+theme_override_fonts/normal_font = ExtResource("3_rfp6p")
 theme_override_font_sizes/normal_font_size = 25
 text = "Arcana"
 horizontal_alignment = 1
@@ -47,7 +47,7 @@ offset_top = -299.0
 offset_right = -211.0
 offset_bottom = -168.0
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("3_v1wxp")
+theme_override_fonts/normal_font = ExtResource("3_rfp6p")
 theme_override_font_sizes/normal_font_size = 61
 text = "1"
 horizontal_alignment = 1
@@ -56,7 +56,7 @@ vertical_alignment = 1
 [node name="Aspect" type="Sprite2D" parent="."]
 position = Vector2(-299, -118)
 scale = Vector2(0.435, 0.435)
-texture = ExtResource("4_r6p1b")
+texture = ExtResource("4_apklb")
 
 [node name="Body" type="Control" parent="."]
 layout_mode = 3
@@ -75,7 +75,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("5_nmkkm")
+theme_override_fonts/normal_font = ExtResource("5_k1ocj")
 theme_override_font_sizes/normal_font_size = 39
 text = "You gain      "
 horizontal_alignment = 1
@@ -84,9 +84,9 @@ vertical_alignment = 1
 [node name="Icon3" type="Sprite2D" parent="Body"]
 position = Vector2(320.82376, 162.04216)
 scale = Vector2(0.17624523, 0.17624523)
-texture = ExtResource("6_v1wxp")
+texture = ExtResource("6_wbh2x")
 
 [node name="Icon4" type="Sprite2D" parent="Body"]
 position = Vector2(363.65903, 160.9119)
 scale = Vector2(0.17624523, 0.17624523)
-texture = ExtResource("6_v1wxp")
+texture = ExtResource("6_wbh2x")

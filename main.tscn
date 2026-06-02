@@ -1,3 +1,158 @@
-[gd_scene format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=10 format=3 uid="uid://d3he4reml4mph"]
+
+[ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ebm875nd0tk6" path="res://Cards/Colorless/bugbear.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://hdcr3mb640td" path="res://hand.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://bho3dbvnom1gd" path="res://deck.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cnxkgr6txsmps" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE 2.png" id="3_lquwl"]
+
+[sub_resource type="Animation" id="Animation_1bvp3"]
+resource_name = "close"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1505), Vector2(0, 2270)]
+}
+
+[sub_resource type="Animation" id="Animation_lquwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-425.00003, 1505)]
+}
+
+[sub_resource type="Animation" id="Animation_7mycd"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 2270), Vector2(0, 1505)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mycd"]
+_data = {
+&"RESET": SubResource("Animation_lquwl"),
+&"close": SubResource("Animation_1bvp3"),
+&"open": SubResource("Animation_7mycd")
+}
 
 [node name="Main" type="Node2D"]
+
+[node name="CardBackVerse2" type="Sprite2D" parent="."]
+position = Vector2(3823, 1750)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.22, 0.22)
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(3821, 593)
+script = ExtResource("3_h2yge")
+
+[node name="card" type="Sprite2D" parent="Deck"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_0xm2m")
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(-3728, -1794.0001)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Enemy Deck" type="Node2D" parent="."]
+position = Vector2(-3723.9998, -593)
+script = ExtResource("3_h2yge")
+
+[node name="card" type="Sprite2D" parent="Enemy Deck"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lquwl")
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(-425.00003, 1505)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("3_1bvp3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hand"]
+offset_left = -2910.6667
+offset_top = -521.3334
+offset_right = 2911.3333
+offset_bottom = 643.6666
+mouse_filter = 2
+alignment = 1
+
+[node name="Bugbear" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+
+[node name="Bugbear2" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+
+[node name="Bugbear3" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+
+[node name="Bugbear4" parent="Hand/HBoxContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+
+[node name="animator" type="AnimationPlayer" parent="Hand"]
+libraries = {
+&"": SubResource("AnimationLibrary_7mycd")
+}

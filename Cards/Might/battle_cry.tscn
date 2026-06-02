@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_7js4e"]
 [ext_resource type="Texture2D" uid="uid://bdawigrtykhxs" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/inspired.png" id="6_heyke"]
 
-[node name="Heavy Swing" type="Node2D"]
+[node name="Battle Cry" type="Node2D"]
 
 [node name="Picture" type="Sprite2D" parent="."]
 texture = ExtResource("1_muvsc")
