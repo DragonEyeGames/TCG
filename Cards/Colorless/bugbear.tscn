@@ -1,0 +1,163 @@
+[gd_scene load_steps=10 format=3 uid="uid://ebm875nd0tk6"]
+
+[ext_resource type="Texture2D" uid="uid://c6v3fdujl4woh" path="res://Crows TCG - Card Game Template/Artwork/C06.png" id="1_rw2h8"]
+[ext_resource type="Texture2D" uid="uid://bgs16lxf3yunk" path="res://Crows TCG - Card Game Template/Front/UNIVERSAL.png" id="2_keaa4"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_s742a"]
+[ext_resource type="Texture2D" uid="uid://bc7kasvsqpdvk" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/35.png" id="4_w0gpn"]
+[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_2kgep"]
+[ext_resource type="Texture2D" uid="uid://ey1hh7uwf8c6" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/strike.png" id="6_rw2h8"]
+[ext_resource type="Texture2D" uid="uid://b146iopgxk24n" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/creature.png" id="7_keaa4"]
+[ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="8_cqdjt"]
+[ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="9_ys58p"]
+
+[node name="Heavy Swing" type="Node2D"]
+
+[node name="Picture" type="Sprite2D" parent="."]
+texture = ExtResource("1_rw2h8")
+
+[node name="Front" type="Sprite2D" parent="."]
+position = Vector2(0, 216)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_keaa4")
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = -400.0
+offset_top = 195.0
+offset_right = 396.0
+offset_bottom = 371.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_font_sizes/normal_font_size = 55
+text = "Bugbear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Type" type="RichTextLabel" parent="."]
+offset_left = -166.0
+offset_top = 680.0
+offset_right = 158.0
+offset_bottom = 765.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_font_sizes/normal_font_size = 25
+text = "Creature"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="RichTextLabel" parent="."]
+offset_left = -368.0
+offset_top = -299.0
+offset_right = -211.0
+offset_bottom = -168.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_font_sizes/normal_font_size = 61
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aspect" type="Sprite2D" parent="."]
+position = Vector2(-299, -118)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("4_w0gpn")
+
+[node name="Body" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -374.0
+offset_top = 273.0
+offset_right = 156.26819
+offset_bottom = 593.38696
+scale = Vector2(1.415, 1.415)
+
+[node name="Info" type="RichTextLabel" parent="Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.427562
+offset_top = -1.4134276
+offset_right = -10.126831
+offset_bottom = -1.4134216
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("5_2kgep")
+theme_override_font_sizes/normal_font_size = 39
+text = "On a successful .  deal 1 damage to each enemy   ."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon3" type="Sprite2D" parent="Body"]
+position = Vector2(448.76324, 110.95407)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_rw2h8")
+
+[node name="Icon5" type="Sprite2D" parent="Body"]
+position = Vector2(323.6749, 205.6537)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_keaa4")
+
+[node name="Armor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -342.00003
+offset_top = 568.00006
+offset_right = -134.00003
+offset_bottom = 754.00006
+scale = Vector2(0.915, 0.915)
+
+[node name="57" type="Sprite2D" parent="Armor"]
+position = Vector2(104, 106)
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("8_cqdjt")
+
+[node name="Cost" type="RichTextLabel" parent="Armor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_font_sizes/normal_font_size = 55
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 160.99994
+offset_top = 574.00006
+offset_right = 368.99994
+offset_bottom = 760.00006
+scale = Vector2(0.915, 0.915)
+
+[node name="57" type="Sprite2D" parent="Health"]
+position = Vector2(104, 106)
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("9_ys58p")
+
+[node name="Cost" type="RichTextLabel" parent="Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.6705084e-05
+offset_top = 7.650206
+offset_right = 6.1035156e-05
+offset_bottom = 7.6502075
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_s742a")
+theme_override_font_sizes/normal_font_size = 55
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1

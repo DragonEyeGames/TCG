@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2lysgtry83ub"]
+
+[ext_resource type="Texture2D" uid="uid://hnx3pq6nxsfb" path="res://Crows TCG - Card Game Template/Artwork/sprite-2-3.png" id="1_v37ea"]
+[ext_resource type="Texture2D" uid="uid://du1pwishm3m27" path="res://Crows TCG - Card Game Template/Front/PROSPECT.png" id="2_l5i0x"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_snvfv"]
+[ext_resource type="Texture2D" uid="uid://s8vuwkcxuac1" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/40.png" id="4_g2w0q"]
+[ext_resource type="FontFile" uid="uid://c832l44ecs70d" path="res://zai-pencil-typewriter-font/ZaiPencilTypewriter-X3Gma.ttf" id="5_12ivx"]
+[ext_resource type="Texture2D" uid="uid://2ee2lqnslcwd" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/16.png" id="6_54skk"]
+[ext_resource type="Texture2D" uid="uid://bhbsrie1sprns" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/18.png" id="7_n6lmk"]
+
+[node name="Heavy Swing" type="Node2D"]
+
+[node name="Picture" type="Sprite2D" parent="."]
+texture = ExtResource("1_v37ea")
+
+[node name="Front" type="Sprite2D" parent="."]
+position = Vector2(0, 216)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_l5i0x")
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = -400.0
+offset_top = 195.0
+offset_right = 396.0
+offset_bottom = 371.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_snvfv")
+theme_override_font_sizes/normal_font_size = 37
+text = "Midas Touch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Type" type="RichTextLabel" parent="."]
+offset_left = -166.0
+offset_top = 680.0
+offset_right = 158.0
+offset_bottom = 765.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_snvfv")
+theme_override_font_sizes/normal_font_size = 25
+text = "Arcana"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="RichTextLabel" parent="."]
+offset_left = -368.0
+offset_top = -299.0
+offset_right = -211.0
+offset_bottom = -168.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_snvfv")
+theme_override_font_sizes/normal_font_size = 61
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aspect" type="Sprite2D" parent="."]
+position = Vector2(-299, -118)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("4_g2w0q")
+
+[node name="Body" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -374.0
+offset_top = 273.0
+offset_right = 156.26819
+offset_bottom = 593.38696
+scale = Vector2(1.415, 1.415)
+
+[node name="Info" type="RichTextLabel" parent="Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.427562
+offset_top = -1.4134276
+offset_right = -10.126831
+offset_bottom = -1.4134216
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("5_12ivx")
+theme_override_font_sizes/normal_font_size = 39
+text = "
+  . gain   and draw cards equal to its cost."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon3" type="Sprite2D" parent="Body"]
+position = Vector2(267.13782, 134.98235)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_54skk")
+
+[node name="Icon5" type="Sprite2D" parent="Body"]
+position = Vector2(71.378105, 136.39577)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_n6lmk")
