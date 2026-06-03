@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if(!player1):
 		return
-	if(get_global_mouse_position().y>2100 and not open):
+	if(get_global_mouse_position().y>2100 and not open and (player1 and not Player1Manager.hand_lock)):
 		open=true
 		Player1Manager.handOpen=true
 		$animator.play("open")

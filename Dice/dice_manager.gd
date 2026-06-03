@@ -11,7 +11,9 @@ func roll_die(sides: int):
 	var die = D20.instantiate() if sides == 20 else D6.instantiate()
 
 	add_child(die)
-	die.global_position = Vector3(0, 0.5, 0)
+	die.position = Vector3(0, 0.0, 0)
+
+	await get_tree().process_frame
 
 	die.roll_dice()
 

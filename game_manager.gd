@@ -52,6 +52,25 @@ var player1Turn=false
 
 var swapping=false
 
+var targeting=false
+var potentialTarget=null
+var target=null
+
+var actionBox: Node2D
+var actionBoxText: RichTextLabel
+
+func set_target():
+	targeting=true
+	Player1Manager.hand_lock=true
+	target=null
+	while target==null:
+		await get_tree().process_frame
+	targeting=false
+	potentialTarget=null
+	var backupTarget=target
+	target=null
+	return backupTarget
+
 func endTurn():
 	swapping=true
 	player1Turn=!player1Turn
@@ -95,11 +114,20 @@ func play(card: cards, scene: Card):
 	
 	Player1Manager.actions-=cardCosts[card]
 	
+	scene.display=true
+	scene.interactable=false
+	scene.scale=Vector2(2.3, 2.3)
+	scene.followMouse=false
+	scene.global_position = Vector2(2792, -1721)
+	Player1Manager.hand_lock=true
+	await scene.onPlay()
+	Player1Manager.hand_lock=false
+	if(scene.consumed):
+		print("DEAD")
+	
 	if(card_type==types.instant_arcana):
 		Player1Manager.discard(card)
 		
 	if(card_type==types.minion):
 		Player1Manager.permanent(card)
-	scene.visible=false
-	await scene.onPlay()
 	scene.queue_free()

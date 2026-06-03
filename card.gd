@@ -2,11 +2,19 @@ extends Control
 class_name Card
 
 @export var interactable=true
+@export var display=false
 var followMouse=false
 var placing=false
 var hovered=false
 
+@export var creature=false
+@export var armor: int
+@export var health: int
+
 @export var cardType: GameManager.cards
+
+var consumed=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -16,6 +24,13 @@ func player1Cost(): #If we are player one make sure we can pay for the card
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if creature:
+		$Armor/Count.text=str(armor)
+		$Health/Count.text=str(health)
+	if(GameManager.targeting):
+		if(Input.is_action_just_pressed("Click") and hovered and not display):
+			GameManager.potentialTarget=self
+		return
 	if(followMouse):
 		global_position=get_global_mouse_position()-(pivot_offset*scale.x)
 	if(placing and Input.is_action_just_pressed("Click")):
@@ -37,8 +52,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_mouse_entered() -> void:
-	#if(!interactable):
-		#return
+	if(display):
+		return
 	hovered=true
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2, 1.2), .1)
@@ -46,8 +61,8 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
-	#if(!interactable):
-		#return
+	if(display):
+		return
 	hovered=false
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), .1)
