@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=20 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bwlkniufsnrhm" path="res://Dice/dice_base.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://defphhknh14" path="res://Dice/dice_manager.gd" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bxnirbqfxcaua" path="res://Dice/D6.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://chk7t1hwnkt18" path="res://Dice/D20.tscn" id="15_vivmo"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -421,5 +422,6 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4386034, 0, -0.09273815)
 script = ExtResource("13_w48qg")
 D6 = ExtResource("13_ycdy4")
+D20 = ExtResource("15_vivmo")
 
 [connection signal="pressed" from="Button" to="." method="voluntarySwap"]

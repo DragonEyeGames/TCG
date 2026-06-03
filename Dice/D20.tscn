@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://chk7t1hwnkt18"]
+[gd_scene load_steps=9 format=4 uid="uid://chk7t1hwnkt18"]
 
 [ext_resource type="Texture2D" uid="uid://ctf1b46jw4mhx" path="res://rpg-dice-set/source/dices (2)/Textures_1/texture 1/dices1_BaseColor.png" id="1_c4cyg"]
+[ext_resource type="Script" uid="uid://b0b4k8atlagfc" path="res://Dice/dice.gd" id="1_vc5bx"]
+[ext_resource type="PhysicsMaterial" uid="uid://21gtk80djub4" path="res://Dice/physics.tres" id="1_xyf8w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4cyg"]
 albedo_texture = ExtResource("1_c4cyg")
@@ -45,10 +47,81 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a8cdg")
 
-[node name="D20" type="Node3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vc5bx"]
+points = PackedVector3Array(0.005537152, 0.0040632626, -0.0021214264, -0.0069400584, -0.0033676333, 0.0014725012, -0.006979234, -0.0033865392, 0.0019640785, 0.0060968045, -0.004845184, 0.0012408376, -0.0036404238, 0.0029417009, 0.0066541727, -0.004782343, -0.0014437999, -0.0059958845, -0.006233858, 0.0048244414, -0.0011749599, 0.0037157836, -0.0029399237, -0.0065898537, -0.0011607426, -0.0076785744, -0.0016478854, -0.00044455123, -0.004829489, 0.006308438, 0.004825897, 0.0021540376, 0.006015403, 0.0010039859, 0.007733183, 0.0017201364, 0.00051968056, 0.0048326035, -0.006252169, 0.007019381, 0.003369145, -0.0016533299, -0.004800865, -0.0021770538, -0.006019039, 0.006635621, -0.004153674, 0.0010067618, -0.0002033396, 0.0050723986, -0.006009634, -0.00044565205, -0.00774602, -0.0011789723, 0.00027739574, -0.0048163803, 0.0062913965, -0.0065119583, 0.004608669, -0.00093941746, 0.001003754, 0.0077313264, 0.0009956283, 0.0067632403, 0.002881957, -0.0023710174, 0.0048631877, 0.0016885794, 0.00606202, 0.0012596857, 0.0021971327, -0.0065641077, -0.00643914, 0.0045574335, -0.001408037, -0.0009292401, -0.0077447463, -0.00093698705, -0.00020293871, 0.007477336, 0.0009941047, 0.0063262912, -0.004594483, 0.0014800458, -0.0067035044, -0.0021663788, 0.0024372092, -0.00043934546, 0.0047773984, -0.0061804033, -0.0028908602, -0.0021964419, -0.006316827, 0.006296671, -0.004572841, 0.0005099052)
+
+[node name="D20" type="RigidBody3D"]
+physics_material_override = ExtResource("1_xyf8w")
+script = ExtResource("1_vc5bx")
 
 [node name="LP2" type="MeshInstance3D" parent="."]
 transform = Transform3D(18.965288, 0, 0, 0, 18.965282, 0, 0, 0, 18.965288, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_c4cyg")
 mesh = SubResource("ArrayMesh_vc5bx")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(18.965288, 0, 0, 0, 18.965282, 0, 0, 0, 18.965288, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_vc5bx")
+
+[node name="Faces" type="Node3D" parent="."]
+
+[node name="1" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029271469, -0.11040038, 0.040067814)
+
+[node name="2" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04040295, 0.112862594, -0.030826591)
+
+[node name="3" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.070821255, -0.029786997, 0.09676469)
+
+[node name="4" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.12122092)
+
+[node name="5" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11698963, 0, -0.04568264)
+
+[node name="6" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11868025, 0.017837107, -0.032319278)
+
+[node name="7" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076856464, -0.0324089, 0.092221245)
+
+[node name="8" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06353442, 0.08765553, 0.06451696)
+
+[node name="9" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09108162, -0.07564947, -0.03462237)
+
+[node name="10" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09591621, 0.0780952)
+
+[node name="11" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02019675, -0.08898391, -0.08636705)
+
+[node name="12" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07514137, 0.0882832, 0.041321084)
+
+[node name="13" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06035289, -0.093295306, -0.04522657)
+
+[node name="14" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06962246, 0.038532987, -0.09139934)
+
+[node name="15" type="Node3D" parent="Faces"]
+transform = Transform3D(0.99987274, 0, -0.015951633, 0, 1, 0, 0.015951633, 0, 0.99987274, 0.11493003, 0.002027994, 0.040344097)
+
+[node name="16" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11231768, 0.024177078, 0.039648116)
+
+[node name="17" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12102054)
+
+[node name="18" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07430076, 0.03744905, -0.084948994)
+
+[node name="19" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043450087, -0.1052959, 0.046940155)
+
+[node name="20" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036867827, 0.10262084, -0.05180469)

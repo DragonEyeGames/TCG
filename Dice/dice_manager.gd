@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var D6: PackedScene
+@export var D20: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.diceManager=self
@@ -9,7 +10,9 @@ func _ready() -> void:
 func roll_die(sides: int):
 	var die
 	if(sides==6):
-		die = D6.instantiate()
+		die = D20.instantiate()
+	if(sides==20):
+		die = D20.instantiate()
 	die.position=Vector3.ZERO
 	die.position.y=.5
 	add_child(die)

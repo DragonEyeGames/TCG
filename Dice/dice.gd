@@ -1,46 +1,59 @@
 extends RigidBody3D
 
-@export var maxRandomForce=40
+@export var max_random_force: float = 0 # Reduced slightly for better control
+@export var jump_force: float = 0          # Lifts the die off the ground slightly
 
 @onready var faces = $Faces
+var isMoving: bool = false
 
-var isMoving=false
-
-func _ready():
-	randomize() # Godot 3.x; not needed in Godot 4 if already randomized
-
+func _ready() -> void:
+	# Godot 4 automatically randomizes on startup, but we randomize orientation here:
 	rotation_degrees = Vector3(
 		randf_range(0, 360),
 		randf_range(0, 360),
 		randf_range(0, 360)
 	)
 
-func _physics_process(_delta):
-	isMoving = linear_velocity.length() > 0.1
-	#if(Input.is_action_just_pressed("Click")):
-	#	roll_dice()
-	
-func get_number():
-	var lowest_y
-	var number
+func _physics_process(_delta: float) -> void:
+	# Include angular velocity so we know it's fully stopped spinning too
+	isMoving = linear_velocity.length() > 0.05 or angular_velocity.length() > 0.05
+
+func get_number() -> int:
+	var lowest_y: float = INF
+	var number: String = ""
 	
 	for node in faces.get_children():
 		var y_value = node.global_position.y
-		
-		if not lowest_y || y_value < lowest_y:
+		if y_value < lowest_y:
 			lowest_y = y_value
-			number=node.name
+			number = node.name
 			
 	return int(str(number))
 
-func roll_dice():
-	#if isMoving: return
+func roll_dice() -> void:
+	#if isMoving: 
+	#	return
+		
+	# Ensure the die is awake so physics can act on it
+	sleeping = false
 	
 	var rng = RandomNumberGenerator.new()
-	var randomDirection = [-1, 1]
-	var force = Vector3.ZERO
+	var random_direction = [-1, 1]
 	
-	force.x = rng.randi_range(10, maxRandomForce) * randomDirection.pick_random()
-	force.z = rng.randi_range(10, maxRandomForce) * randomDirection.pick_random()
+	# 1. Create a chaotic rotational impulse (Torque Impulse)
+	var torque_impulse = Vector3(
+		rng.randf_range(5.0, max_random_force) * random_direction.pick_random(),
+		rng.randf_range(5.0, max_random_force) * random_direction.pick_random(),
+		rng.randf_range(5.0, max_random_force) * random_direction.pick_random()
+	)
 	
-	apply_torque(force)
+	# 2. Create a slight linear upward/forward push so it hops
+	var linear_impulse = Vector3(
+		rng.randf_range(-2.0, 2.0),
+		jump_force,
+		rng.randf_range(-2.0, 2.0)
+	)
+	
+	# 3. Apply impulses (These work beautifully with Jolt)
+	apply_torque_impulse(torque_impulse)
+	apply_central_impulse(linear_impulse)

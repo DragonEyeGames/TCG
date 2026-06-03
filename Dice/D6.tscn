@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://bxnirbqfxcaua"]
+[gd_scene load_steps=9 format=4 uid="uid://bxnirbqfxcaua"]
 
 [ext_resource type="Script" uid="uid://b0b4k8atlagfc" path="res://Dice/dice.gd" id="1_2fscs"]
+[ext_resource type="PhysicsMaterial" uid="uid://21gtk80djub4" path="res://Dice/physics.tres" id="1_wcr0v"]
 [ext_resource type="Texture2D" uid="uid://ctf1b46jw4mhx" path="res://rpg-dice-set/source/dices (2)/Textures_1/texture 1/dices1_BaseColor.png" id="1_y41af"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwpur"]
@@ -50,6 +51,7 @@ shadow_mesh = SubResource("ArrayMesh_18nlb")
 size = Vector3(0.12366104, 0.1255951, 0.12243652)
 
 [node name="D6" type="RigidBody3D"]
+physics_material_override = ExtResource("1_wcr0v")
 script = ExtResource("1_2fscs")
 
 [node name="LP_014" type="MeshInstance3D" parent="."]
