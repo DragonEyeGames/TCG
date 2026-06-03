@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=18 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/warlord_of_ash.tscn" id="7_dg77c"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://dw3j21eryho0i" path="res://actionCounter.gd" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bwlkniufsnrhm" path="res://Dice/dice_base.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://bxnirbqfxcaua" path="res://Dice/D6.tscn" id="13_ycdy4"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -385,3 +387,38 @@ theme_override_font_sizes/normal_font_size = 300
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = -4958.0
+offset_top = 1442.0
+offset_right = -2626.0
+offset_bottom = 2451.0
+theme_override_fonts/font = ExtResource("8_5vw27")
+theme_override_font_sizes/font_size = 200
+text = "End Turn"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5096.0
+offset_top = -2936.0
+offset_right = 5095.0
+offset_bottom = 2904.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(10191, 5840)
+render_target_update_mode = 4
+
+[node name="Node3D" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4386034, 0, -0.09273815)
+
+[node name="D7" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("13_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5542452, 0, 0)
+
+[connection signal="pressed" from="Button" to="." method="voluntarySwap"]

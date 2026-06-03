@@ -1,4 +1,5 @@
 extends Control
+class_name Card
 
 @export var interactable=true
 var followMouse=false
@@ -23,8 +24,7 @@ func _process(_delta: float) -> void:
 			Player1Manager.hand.get_node("CardHolder").add_child(new)
 			queue_free()
 		else:
-			GameManager.play(cardType)
-			queue_free()
+			GameManager.play(cardType, self)
 	if(Input.is_action_just_pressed("Click") and hovered and interactable and player1Cost()):
 		var new = self.duplicate()
 		new.interactable=false
@@ -52,3 +52,6 @@ func _on_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), .1)
 	z_index=0
+
+func onPlay():
+	print("empty on-play")

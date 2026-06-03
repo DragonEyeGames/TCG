@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwlkniufsnrhm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ct3jt"]
+size = Vector3(41.650635, 1, 32.558838)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_51ao0"]
+size = Vector3(41.650635, 7.716797, 16.251694)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.27189922, 0.98752856, 0.3825482)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.31608, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017944336, -1.6439825, 0.0357666)
+shape = SubResource("BoxShape3D_ct3jt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017944336, 2.5916963, -8.881935)
+shape = SubResource("BoxShape3D_51ao0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.291075, 2.5916963, -2.0235004)
+shape = SubResource("BoxShape3D_51ao0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.739132, 2.5916963, 9.6333065)
+shape = SubResource("BoxShape3D_51ao0")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.946962, 2.5916963, 5.7153215)
+shape = SubResource("BoxShape3D_51ao0")

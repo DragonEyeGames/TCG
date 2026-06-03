@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://4hn8iun0tijt"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_inw0o"]
 [ext_resource type="Texture2D" uid="uid://bn87tsbfctvge" path="res://Crows TCG - Card Game Template/Artwork/sprite-1-5.png" id="1_oortt"]
+[ext_resource type="Script" uid="uid://d3u2apff2eop5" path="res://Card Scripts/golden_opportunity.gd" id="1_v54i5"]
 [ext_resource type="Texture2D" uid="uid://du1pwishm3m27" path="res://Crows TCG - Card Game Template/Front/PROSPECT.png" id="2_inw0o"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_rfp6p"]
 [ext_resource type="Texture2D" uid="uid://s8vuwkcxuac1" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/40.png" id="4_apklb"]
@@ -13,7 +13,7 @@ custom_minimum_size = Vector2(810, 1134)
 layout_mode = 3
 anchors_preset = 0
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_inw0o")
+script = ExtResource("1_v54i5")
 cardType = 8
 
 [node name="Picture" type="Sprite2D" parent="."]

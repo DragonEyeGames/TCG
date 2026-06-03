@@ -8,7 +8,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(GameManager.player1Turn and Player1Manager.actions==0 and not GameManager.swapping):
-		GameManager.endTurn()
-	if(!GameManager.player1Turn and Player2Manager.actions==0 and not GameManager.swapping):
+	pass
+	#if(GameManager.player1Turn and Player1Manager.actions==0 and not GameManager.swapping):
+	#	GameManager.endTurn()
+	#if(!GameManager.player1Turn and Player2Manager.actions==0 and not GameManager.swapping):
+	#	GameManager.endTurn()
+
+
+func voluntarySwap() -> void:
+	if(GameManager.player1Turn and not GameManager.swapping):
 		GameManager.endTurn()

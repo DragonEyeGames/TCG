@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=4 uid="uid://bxnirbqfxcaua"]
+
+[ext_resource type="Script" uid="uid://b0b4k8atlagfc" path="res://Dice/dice.gd" id="1_2fscs"]
+[ext_resource type="Texture2D" uid="uid://ctf1b46jw4mhx" path="res://rpg-dice-set/source/dices (2)/Textures_1/texture 1/dices1_BaseColor.png" id="1_y41af"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwpur"]
+albedo_texture = ExtResource("1_y41af")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tkv1"]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission_energy_multiplier = 0.99999994
+normal_enabled = true
+normal_scale = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_18nlb"]
+_surfaces = [{
+"aabb": AABB(-0.0063064145, -0.0063064164, -0.006306417, 0.012612834, 0.012612833, 0.012612834),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CqbOuw6mzjsPps47CqbOuw6mzrsPps47CqbOuw6mzrsPps67CqbOuw6mzjsPps67FKbOOw6mzjsPps47FKbOOw6mzrsPps67FKbOOw6mzrsPps47FKbOOw6mzjsPps67")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yayr5"]
+resource_name = "Solid_010"
+_surfaces = [{
+"aabb": AABB(-0.0063064145, -0.0063064164, -0.006306417, 0.012612834, 0.012612833, 0.012612834),
+"attribute_data": PackedByteArray("9tcWPyjtWj+pvTs/Ke1aP6i9Oz/c0n8/9dcWP9zSfz+ktug+GsLRPqS26D7Axg0/PeuePsHGDT89654+HMLRPh2PNDrAK6o+XEsUPsArqj5dSxQ+JvfzPpOPNDom9/M+fLQVPsArqj6kpZQ+wCuqPqWllD4m9/M+fLQVPib38z49Bzw/Lq01Pz0HPD/hklo/iSEXP+CSWj+JIRc/Lq01P5zdHD+Nmgs/0e/vPo2aCz/R7+8+smnNPpzdHD+yac0+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_8tkv1"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CqbOuw6mzjsPps47CqbOuw6mzrsPps47CqbOuw6mzrsPps67CqbOuw6mzjsPps67FKbOOw6mzjsPps47CqbOuw6mzjsPps47CqbOuw6mzjsPps67FKbOOw6mzjsPps67FKbOOw6mzrsPps47FKbOOw6mzjsPps47FKbOOw6mzjsPps67FKbOOw6mzrsPps67CqbOuw6mzrsPps47FKbOOw6mzrsPps47FKbOOw6mzrsPps67CqbOuw6mzrsPps67FKbOOw6mzrsPps67FKbOOw6mzjsPps67CqbOuw6mzjsPps67CqbOuw6mzrsPps67CqbOuw6mzrsPps47CqbOuw6mzjsPps47FKbOOw6mzjsPps47FKbOOw6mzrsPps47AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/f////3//v/9/////f/+//3////9//7//f////3//v////3//f///////f/9///////9//3///////3//f////38AAP///7//fwAA////v/9/AAD///+//38AAP///7///////v//v//////+//+///////7//7//////////v/9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_18nlb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y41af"]
+size = Vector3(0.12366104, 0.1255951, 0.12243652)
+
+[node name="D6" type="RigidBody3D"]
+script = ExtResource("1_2fscs")
+
+[node name="LP_014" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_mwpur")
+mesh = SubResource("ArrayMesh_yayr5")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00016212463, -0.00038909912, -0.0005493164)
+shape = SubResource("BoxShape3D_y41af")
+
+[node name="Faces" type="Node3D" parent="."]
+
+[node name="1" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10590263, 0)
+
+[node name="2" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.10775331)
+
+[node name="3" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10586846, 0, 0)
+
+[node name="4" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10421418, 0, 0)
+
+[node name="5" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1025601)
+
+[node name="6" type="Node3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105868444, 0)

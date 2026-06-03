@@ -84,7 +84,7 @@ func endTurn():
 		Player2Manager.actions=3
 		endTurn()
 
-func play(card: cards):
+func play(card: cards, scene: Card):
 	var card_type = cardTypes[card]
 	
 	if(Player1Manager.actions-cardCosts[card]<0):
@@ -98,3 +98,6 @@ func play(card: cards):
 		
 	if(card_type==types.minion):
 		Player1Manager.permanent(card)
+
+	scene.onPlay()
+	scene.queue_free()

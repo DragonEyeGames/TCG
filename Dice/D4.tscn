@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=4 uid="uid://brpbywh3gti1h"]
+
+[ext_resource type="Texture2D" uid="uid://ctf1b46jw4mhx" path="res://rpg-dice-set/source/dices (2)/Textures_1/texture 1/dices1_BaseColor.png" id="1_1you3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijgk6"]
+albedo_texture = ExtResource("1_1you3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tkv1"]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission_energy_multiplier = 0.99999994
+normal_enabled = true
+normal_scale = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ttw54"]
+_surfaces = [{
+"aabb": AABB(-0.009552751, -0.008716023, -0.004147642, 0.015385924, 0.015999738, 0.014070123),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAADAAEA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("SAmROoVHFLrokSI8mj8rO6bNDrzx6Ie7JIMcvArwAjtF4Q67MyS/Oz2s7jtzlGu7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m1nfo"]
+resource_name = "Solid_021"
+_surfaces = [{
+"aabb": AABB(-0.009552751, -0.008716023, -0.004147642, 0.015385924, 0.015999738, 0.014070123),
+"attribute_data": PackedByteArray("gzAmPqlvSD+EMCY+FTV4P2uPNDpfUmA/opknPibwZz/MiqY+cA1QP8yKpj7c0n8/hTAmPuA9Ej+EMCY+TANCP2OQNDqWICo/y4qmPimzTz+jmSc+c9A3P8uKpj6+7R8/"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_8tkv1"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("SAmROoVHFLrokSI8mj8rO6bNDrzx6Ie7JIMcvArwAjtF4Q67MyS/Oz2s7jtzlGu7SAmROoVHFLrokSI8JIMcvArwAjtF4Q67mj8rO6bNDrzx6Ie7MyS/Oz2s7jtzlGu7JIMcvArwAjtF4Q67SAmROoVHFLrokSI8MyS/Oz2s7jtzlGu7mj8rO6bNDrzx6Ie7UVM1SC+/nq1RUzVIL7+erVFTNUgvv56tY2oVyJBKjK5jahXIkEqMrmNqFciQSoyuPgbH8+PsfbA+Bsfz4+x9sD4Gx/Pj7H2wDNlfbUVp5Z0M2V9tRWnlnQzZX21FaeWd")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ttw54")
+
+[node name="D4" type="Node3D"]
+
+[node name="LP_022" type="MeshInstance3D" parent="."]
+transform = Transform3D(18.965288, 0, 0, 0, 18.965286, 0, 0, 0, 18.965288, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ijgk6")
+mesh = SubResource("ArrayMesh_m1nfo")
+skeleton = NodePath("")

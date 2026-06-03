@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=4 uid="uid://bpe0uymbmwj87"]
+
+[ext_resource type="Texture2D" uid="uid://ctf1b46jw4mhx" path="res://rpg-dice-set/source/dices (2)/Textures_1/texture 1/dices1_BaseColor.png" id="1_awewf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awewf"]
+albedo_texture = ExtResource("1_awewf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tkv1"]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission_energy_multiplier = 0.99999994
+normal_enabled = true
+normal_scale = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6t6wy"]
+_surfaces = [{
+"aabb": AABB(-0.006377039, -0.009001615, -0.006377032, 0.012754068, 0.01800323, 0.012754064),
+"format": 34359742465,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAAAAIAAwAEAAIAAQAAAAUAAwABAAUAAAAEAAUABAADAAUA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("CtejsYN7EzwK1yMxFC7QOzgZhTBs9tC7ZvbQOxR+ADAaLtA7CtejsYN7E7wK1yOxHy7Qu/bWTLBs9tA7e/bQuzNFhq8aLtC7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gcpbx"]
+resource_name = "Solid_025"
+_surfaces = [{
+"aabb": AABB(-0.006377039, -0.009001615, -0.006377032, 0.012754068, 0.01800323, 0.012754064),
+"attribute_data": PackedByteArray("1rsVPw80bT/+9uo+3NJ/P/726j5ClVo/uX3uPoFlDz8zfxc/TgQiP7h97j4aozQ/ASzrPhajND9Sq6o+SAQiPwEs6z57ZQ8/77UBPqn0DD9gkjQ6dpMfP4+SNDq4q/Q+CcDnPl79ND8KwOc++TpaP1o/pz4snEc/FCNRPsJ/KT8TI1E+KEIEPzgSqT7z4BY/CdkVP2D9ND8J2RU/+TpaP2Ix6z4qnEc/CMDnPkGVWj8IwOc+3NJ/P1g/pz4ONG0/"),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcA"),
+"material": SubResource("StandardMaterial3D_8tkv1"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtejsYN7EzwK1yMxFC7QOzgZhTBs9tC7ZvbQOxR+ADAaLtA7Hy7Qu/bWTLBs9tA7CtejsYN7EzwK1yMxZvbQOxR+ADAaLtA7CtejsYN7E7wK1yOxHy7Qu/bWTLBs9tA7ZvbQOxR+ADAaLtA7FC7QOzgZhTBs9tC7CtejsYN7E7wK1yOxZvbQOxR+ADAaLtA7FC7QOzgZhTBs9tC7CtejsYN7EzwK1yMxe/bQuzNFhq8aLtC7CtejsYN7EzwK1yMxHy7Qu/bWTLBs9tA7e/bQuzNFhq8aLtC7Hy7Qu/bWTLBs9tA7CtejsYN7E7wK1yOxe/bQuzNFhq8aLtC7CtejsYN7E7wK1yOxFC7QOzgZhTBs9tC7e/bQuzNFhq8aLtC7CcsZtQVLdeUJyxm1BUt15QnLGbUFS3XlI4D1tOtK8v8jgPW060ry/yOA9bTrSvL/I4AJS5XeaaMjgAlLld5poyOACUuV3mmjCcvlSoreO/QJy+VKit479AnL5UqK3jv09TTb/wPHudD1NNv/A8e50PU02/8Dx7nQGTX1tGkh4IsZNfW0aSHgixk19bRpIeCLGTUJS8GXSq8ZNQlLwZdKrxk1CUvBl0qv9TQjAAPHRK/1NCMAA8dEr/U0IwADx0Sv")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6t6wy")
+
+[node name="D8" type="Node3D"]
+
+[node name="LP_040" type="MeshInstance3D" parent="."]
+transform = Transform3D(18.965288, 0, 0, 0, 18.965286, 0, 0, 0, 18.965288, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_awewf")
+mesh = SubResource("ArrayMesh_gcpbx")
+skeleton = NodePath("")
