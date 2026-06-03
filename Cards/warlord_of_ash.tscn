@@ -19,8 +19,8 @@ anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
 script = ExtResource("1_hyyma")
 creature = true
-armor = 13
-health = 20
+armor = 11
+health = 24
 cardType = 3
 metadata/_edit_use_anchors_ = true
 
@@ -146,7 +146,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_c6yw8")
 theme_override_font_sizes/normal_font_size = 55
-text = "13"
+text = "11"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -181,7 +181,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_c6yw8")
 theme_override_font_sizes/normal_font_size = 52
-text = "20"
+text = "24"
 horizontal_alignment = 1
 vertical_alignment = 1
 

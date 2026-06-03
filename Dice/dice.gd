@@ -10,6 +10,7 @@ var isFinished: bool = false
 signal finished(result)
 
 func _ready() -> void:
+	$Number.visible=false
 	# Godot 4 automatically randomizes on startup, but we randomize orientation here:
 	rotation_degrees = Vector3(
 		randf_range(0, 360),
@@ -20,12 +21,15 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	# Include angular velocity so we know it's fully stopped spinning too
 	if(isMoving):
-		isMoving = linear_velocity.length() > 0.05 or angular_velocity.length() > 0.05
+		isMoving = linear_velocity.length() > 0.02 or angular_velocity.length() > 0.02
 		if(!isMoving):
+			await get_tree().create_timer(.25).timeout
 			isFinished=true
+			$Number.visible=true
 			emit_signal("finished", get_number())
 	else:
-		isMoving = linear_velocity.length() > 0.05 or angular_velocity.length() > 0.05
+		isMoving = linear_velocity.length() > 0.02 or angular_velocity.length() > 0.02
+	$Number.text=str(get_number())
 
 func get_number() -> int:
 	var lowest_y: float = INF

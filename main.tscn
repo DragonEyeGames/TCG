@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=23 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -143,6 +143,10 @@ _data = {
 &"close": SubResource("Animation_1bvp3"),
 &"open": SubResource("Animation_7mycd")
 }
+
+[sub_resource type="Curve" id="Curve_yaehf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.29213488), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5vw27")
@@ -488,6 +492,14 @@ visible = false
 z_index = 2
 position = Vector2(-6780, -883)
 script = ExtResource("18_074og")
+
+[node name="Line2D" type="Line2D" parent="Target Confirm"]
+visible = false
+z_index = -1
+points = PackedVector2Array(4504, 911, 6266, 204)
+width = 150.0
+width_curve = SubResource("Curve_yaehf")
+end_cap_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Target Confirm"]
 offset_left = 2026.0

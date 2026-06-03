@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://bxnirbqfxcaua"]
+[gd_scene load_steps=10 format=4 uid="uid://bxnirbqfxcaua"]
 
 [ext_resource type="Script" uid="uid://b0b4k8atlagfc" path="res://Dice/dice.gd" id="1_2fscs"]
 [ext_resource type="PhysicsMaterial" uid="uid://21gtk80djub4" path="res://Dice/physics.tres" id="1_wcr0v"]
 [ext_resource type="Texture2D" uid="uid://ctf1b46jw4mhx" path="res://rpg-dice-set/source/dices (2)/Textures_1/texture 1/dices1_BaseColor.png" id="1_y41af"]
+[ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_07ehv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwpur"]
 albedo_texture = ExtResource("1_y41af")
@@ -83,3 +84,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1025601)
 
 [node name="6" type="Node3D" parent="Faces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105868444, 0)
+
+[node name="Number" type="Label3D" parent="."]
+transform = Transform3D(1.3113416e-07, 1, -4.371139e-08, 3.821371e-15, 4.371139e-08, 1, 1, -1.3113416e-07, 1.9106855e-15, 0, -0.0045370758, 0)
+visible = false
+offset = Vector2(0, 90)
+billboard = 1
+text = "20"
+font = ExtResource("4_07ehv")
+font_size = 80

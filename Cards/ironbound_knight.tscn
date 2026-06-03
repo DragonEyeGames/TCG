@@ -18,6 +18,9 @@ anchor_right = 0.421875
 anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
 script = ExtResource("1_qn7yn")
+creature = true
+armor = 15
+health = 18
 cardType = 2
 metadata/_edit_use_anchors_ = true
 
@@ -131,7 +134,7 @@ position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
 texture = ExtResource("9_3jdly")
 
-[node name="Cost" type="RichTextLabel" parent="Armor"]
+[node name="Count" type="RichTextLabel" parent="Armor"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,7 +165,7 @@ position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
 texture = ExtResource("10_ramrq")
 
-[node name="Cost" type="RichTextLabel" parent="Health"]
+[node name="Count" type="RichTextLabel" parent="Health"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -17,6 +17,9 @@ anchor_right = 0.421875
 anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
 script = ExtResource("1_tnid0")
+creature = true
+armor = 8
+health = 12
 cardType = 4
 metadata/_edit_use_anchors_ = true
 
@@ -124,7 +127,7 @@ position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
 texture = ExtResource("8_en33b")
 
-[node name="Cost" type="RichTextLabel" parent="Armor"]
+[node name="Count" type="RichTextLabel" parent="Armor"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,7 +140,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_l20xq")
 theme_override_font_sizes/normal_font_size = 55
-text = "10"
+text = "8"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -155,7 +158,7 @@ position = Vector2(104, 106)
 scale = Vector2(0.79, 0.79)
 texture = ExtResource("9_ad40n")
 
-[node name="Cost" type="RichTextLabel" parent="Health"]
+[node name="Count" type="RichTextLabel" parent="Health"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

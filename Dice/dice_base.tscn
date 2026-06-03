@@ -9,7 +9,7 @@ size = Vector3(41.650635, 7.716797, 16.251694)
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.111260764, 0.9937913, 0, -0.9937913, 0.111260764, 0, 1, 0.05272731)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.31608, 0)
@@ -21,7 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017944336, -1.6439825, -1.1
 shape = SubResource("BoxShape3D_ct3jt")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017944336, 2.5916963, -9.3541565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017944336, 2.5916963, -9.183903)
 shape = SubResource("BoxShape3D_51ao0")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]

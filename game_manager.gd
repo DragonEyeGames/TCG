@@ -42,7 +42,7 @@ const cardCosts = {
 	cards.temple_guardian: 2,
 	cards.quick_snack: 1,
 	cards.battle_cry: 1,
-	cards.heavy_swing: 1,
+	cards.heavy_swing: 2,
 	cards.golden_opportunity: 1
 }
 

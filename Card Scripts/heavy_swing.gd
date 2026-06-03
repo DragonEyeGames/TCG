@@ -12,10 +12,11 @@ func onPlay():
 		consumed=true
 		print("FAILURE")
 		GameManager.actionBoxText.text="Critical Miss!"
+		return
 	
 	if(strike<target.armor):
 		GameManager.actionBoxText.text="Miss!"
-		await get_tree().create_timer(.5).timeout
+		await get_tree().create_timer(1).timeout
 		GameManager.actionBox.visible=false
 		return
 	if(strike!=20):
