@@ -5,6 +5,9 @@ extends RigidBody3D
 
 @onready var faces = $Faces
 var isMoving: bool = false
+var isFinished: bool = false
+
+signal finished(result)
 
 func _ready() -> void:
 	# Godot 4 automatically randomizes on startup, but we randomize orientation here:
@@ -16,7 +19,13 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	# Include angular velocity so we know it's fully stopped spinning too
-	isMoving = linear_velocity.length() > 0.05 or angular_velocity.length() > 0.05
+	if(isMoving):
+		isMoving = linear_velocity.length() > 0.05 or angular_velocity.length() > 0.05
+		if(!isMoving):
+			isFinished=true
+			emit_signal("finished", get_number())
+	else:
+		isMoving = linear_velocity.length() > 0.05 or angular_velocity.length() > 0.05
 
 func get_number() -> int:
 	var lowest_y: float = INF

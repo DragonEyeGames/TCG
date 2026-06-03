@@ -55,3 +55,4 @@ func _on_mouse_exited() -> void:
 
 func onPlay():
 	print("empty on-play")
+	return

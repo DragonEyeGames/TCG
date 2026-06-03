@@ -100,6 +100,6 @@ func play(card: cards, scene: Card):
 		
 	if(card_type==types.minion):
 		Player1Manager.permanent(card)
-
-	scene.onPlay()
+	scene.visible=false
+	await scene.onPlay()
 	scene.queue_free()

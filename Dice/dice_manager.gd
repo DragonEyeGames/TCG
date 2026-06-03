@@ -8,22 +8,19 @@ func _ready() -> void:
 
 
 func roll_die(sides: int):
-	var die
-	if(sides==6):
-		die = D20.instantiate()
-	if(sides==20):
-		die = D20.instantiate()
-	die.position=Vector3.ZERO
-	die.position.y=.5
+	var die = D20.instantiate() if sides == 20 else D6.instantiate()
+
 	add_child(die)
+	die.global_position = Vector3(0, 0.5, 0)
+
 	die.roll_dice()
-	while !die.isMoving:
-		await get_tree().process_frame
+
+	var number = await die.finished
+
 	await get_tree().process_frame
-	while die.isMoving:
-		await get_tree().process_frame
-	await get_tree().process_frame
-	print(die.get_number())
+	
 	await get_tree().create_timer(1).timeout
+	
 	die.queue_free()
-	return(die.get_number())
+
+	return number
