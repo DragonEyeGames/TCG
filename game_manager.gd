@@ -46,6 +46,8 @@ const cardCosts = {
 	cards.golden_opportunity: 1
 }
 
+var diceManager: Node3D
+
 var player1Turn=false
 
 var swapping=false

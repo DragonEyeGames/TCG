@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://6wgtkw7rqegg"]
 
 [ext_resource type="Texture2D" uid="uid://b8ois4vrwekyx" path="res://Crows TCG - Card Game Template/Artwork/M04.png" id="1_jj1tc"]
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_ykjtv"]
+[ext_resource type="Script" uid="uid://blgw26w8lqmp" path="res://Card Scripts/heavy_swing.gd" id="1_kylow"]
 [ext_resource type="Texture2D" uid="uid://csj32f5k85qfj" path="res://Crows TCG - Card Game Template/Front/MIGHT.png" id="2_u2tvo"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_3smsc"]
 [ext_resource type="Texture2D" uid="uid://dkvkt4e7ffnjl" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/might.png" id="4_u2tvo"]
@@ -15,7 +15,7 @@ custom_minimum_size = Vector2(810, 1134)
 layout_mode = 3
 anchors_preset = 0
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_ykjtv")
+script = ExtResource("1_kylow")
 cardType = 7
 
 [node name="Picture" type="Sprite2D" parent="."]

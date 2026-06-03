@@ -6,10 +6,19 @@ extends RigidBody3D
 
 var isMoving=false
 
+func _ready():
+	randomize() # Godot 3.x; not needed in Godot 4 if already randomized
+
+	rotation_degrees = Vector3(
+		randf_range(0, 360),
+		randf_range(0, 360),
+		randf_range(0, 360)
+	)
+
 func _physics_process(_delta):
 	isMoving = linear_velocity.length() > 0.1
-	if(Input.is_action_just_pressed("Click")):
-		roll_dice()
+	#if(Input.is_action_just_pressed("Click")):
+	#	roll_dice()
 	
 func get_number():
 	var lowest_y
@@ -25,7 +34,7 @@ func get_number():
 	return int(str(number))
 
 func roll_dice():
-	if isMoving: return
+	#if isMoving: return
 	
 	var rng = RandomNumberGenerator.new()
 	var randomDirection = [-1, 1]
