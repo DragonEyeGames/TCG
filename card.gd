@@ -15,15 +15,33 @@ var hovered=false
 
 var consumed=false
 
+var onField=false
+var player1=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.strike.connect(onStrike)
+	if("field" in str(get_parent().name).to_lower()):
+		print("Field")
+		onField=true
+		print(name)
+		if("1" in str(get_parent().name)):
+			player1=true
+		else:
+			player1=false
+		
+		if(player1):
+			Player1Manager.active.append(self)
+		else:
+			Player2Manager.active.append(self)
 
 func player1Cost(): #If we are player one make sure we can pay for the card
 	return get_parent().get_parent().player1 and Player1Manager.actions>=GameManager.cardCosts[cardType]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if(!display and hovered and Input.is_action_just_pressed("Expand")):
+		GameManager.zoom.display(self)
 	if creature:
 		$Armor/Count.text=str(armor)
 		$Health/Count.text=str(health)
@@ -71,3 +89,17 @@ func _on_mouse_exited() -> void:
 func onPlay():
 	print("empty on-play")
 	return
+	
+func onStrike(success: bool, _player: bool):
+	if(!onField):
+		return
+	if(success):
+		successfulStrike()
+	else:
+		failedStrike()
+		
+func successfulStrike():
+	pass
+	
+func failedStrike():
+	pass

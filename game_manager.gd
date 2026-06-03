@@ -58,6 +58,24 @@ var target=null
 
 var actionBox: Node2D
 var actionBoxText: RichTextLabel
+var actionLine: Line2D
+
+var zoom: Node2D
+
+var activeActions=0
+
+func actionSlot():
+	prints(activeActions, " ACTIVE ABILITIES")
+	var backupSlot=activeActions
+	activeActions+=1
+	if(backupSlot!=0):
+		while activeActions!=backupSlot:
+			await get_tree().process_frame
+	print("GOOD BOY")
+	return
+
+func actionFinished():
+	activeActions-=1
 
 func set_target():
 	targeting=true
@@ -131,3 +149,12 @@ func play(card: cards, scene: Card):
 	if(card_type==types.minion):
 		Player1Manager.permanent(card)
 	scene.queue_free()
+
+func ability(scene: Card):
+	scene.z_index=4
+	scene.display=true
+	scene.interactable=false
+	scene.scale=Vector2(2.3, 2.3)
+	scene.followMouse=false
+	scene.global_position = Vector2(2792, -1721)
+	Player1Manager.hand_lock=true

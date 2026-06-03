@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://game_manager.gd"
 Player1Manager="*res://player_1_manager.gd"
 Player2Manager="*res://player_2_manager.gd"
+SignalBus="*res://signal_bus.gd"
 
 [display]
 

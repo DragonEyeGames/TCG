@@ -11,6 +11,8 @@ var actions=3
 
 var hand_lock=false
 
+var active = []
+
 func draw_card(index: int):
 	var packed_card: PackedScene = load("res://Cards/" + str(GameManager.cards.keys()[index]) + ".tscn")
 	var card_instance=packed_card.instantiate()

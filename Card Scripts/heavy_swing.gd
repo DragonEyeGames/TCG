@@ -8,17 +8,23 @@ func onPlay():
 	GameManager.actionBoxText.text="Rolling to hit"
 	
 	var strike = (await GameManager.diceManager.roll_die(20))
+	strike=19
 	if strike==1:
 		consumed=true
 		print("FAILURE")
 		GameManager.actionBoxText.text="Critical Miss!"
+		await get_tree().create_timer(1).timeout
+		GameManager.actionBox.visible=false
+		SignalBus.emit_signal("strike", false, true)
 		return
 	
 	if(strike<target.armor):
 		GameManager.actionBoxText.text="Miss!"
 		await get_tree().create_timer(1).timeout
 		GameManager.actionBox.visible=false
+		SignalBus.emit_signal("strike", false, true)
 		return
+	
 	if(strike!=20):
 		GameManager.actionBoxText.text="Hit"
 	else:
@@ -40,4 +46,5 @@ func onPlay():
 	prints(strike, damage)
 	await get_tree().create_timer(1).timeout
 	GameManager.actionBox.visible=false
+	SignalBus.emit_signal("strike", true, true)
 	return

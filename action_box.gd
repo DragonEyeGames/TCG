@@ -6,3 +6,4 @@ func _ready() -> void:
 	visible=false
 	GameManager.actionBox=self
 	GameManager.actionBoxText=$RichTextLabel
+	GameManager.actionLine=$Line2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=25 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dgdcpgus1668y" path="res://discard.gd" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/warlord_of_ash.tscn" id="7_dg77c"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://x0i1g28ptnop" path="res://Cards/temple_guardian.tscn" id="9_cegan"]
 [ext_resource type="Script" uid="uid://dw3j21eryho0i" path="res://actionCounter.gd" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bwlkniufsnrhm" path="res://Dice/dice_base.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://defphhknh14" path="res://Dice/dice_manager.gd" id="13_w48qg"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://chk7t1hwnkt18" path="res://Dice/D20.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dybicv6da77pn" path="res://action_box.gd" id="16_yaehf"]
 [ext_resource type="Script" uid="uid://be41jrgq3r5oy" path="res://target_confirm.gd" id="18_074og"]
+[ext_resource type="Script" uid="uid://di7xg1026vbk2" path="res://zoom_display.gd" id="18_cegan"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -157,11 +159,16 @@ zoom = Vector2(0.19, 0.19)
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(3143, 772)
 script = ExtResource("3_h2yge")
-decklist = Array[int]([0, 0, 0, 4, 4, 4, 5, 5, 8, 8, 7, 7, 6, 6, 1, 1, 1, 8, 7, 6])
+decklist = Array[int]([1, 1, 1, 7, 7, 7, 8, 8, 8])
 
 [node name="card" type="Sprite2D" parent="Deck"]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
+
+[node name="Discard" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(2733, 1405)
+script = ExtResource("5_kek77")
 
 [node name="Player1Field" type="Node2D" parent="." node_paths=PackedStringArray("field1", "field2", "field3")]
 position = Vector2(0, 49)
@@ -210,11 +217,6 @@ offset_right = 405.0
 offset_bottom = 1177.0
 interactable = false
 
-[node name="Discard" type="Sprite2D" parent="Player1Field"]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(2733, 1356)
-script = ExtResource("5_kek77")
-
 [node name="Player2Field" type="Node2D" parent="."]
 position = Vector2(0, -2634)
 
@@ -254,19 +256,33 @@ position = Vector2(-1000, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Enemy Discard" type="Sprite2D" parent="Player2Field"]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(-3966, 93)
-texture = ExtResource("3_lquwl")
-script = ExtResource("5_kek77")
-player1 = false
-
 [node name="Warlord of Ash" parent="Player2Field" instance=ExtResource("7_dg77c")]
 offset_left = -405.0
 offset_top = 1253.0
 offset_right = 405.0
 offset_bottom = 2387.0
 interactable = false
+
+[node name="Temple Guardian" parent="Player2Field" instance=ExtResource("9_cegan")]
+offset_left = -1353.0
+offset_top = 1268.0
+offset_right = -543.0
+offset_bottom = 2402.0
+interactable = false
+
+[node name="Temple Guardian2" parent="Player2Field" instance=ExtResource("9_cegan")]
+offset_left = 555.0
+offset_top = 1207.0
+offset_right = 1365.0
+offset_bottom = 2341.0
+interactable = false
+
+[node name="Enemy Discard" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-3966, -2541)
+texture = ExtResource("3_lquwl")
+script = ExtResource("5_kek77")
+player1 = false
 
 [node name="Enemy Deck" type="Node2D" parent="."]
 position = Vector2(-3560, -888)
@@ -432,59 +448,66 @@ D20 = ExtResource("15_vivmo")
 
 [node name="ActionBox" type="Node2D" parent="."]
 z_index = 2
-position = Vector2(459, -840)
 script = ExtResource("16_yaehf")
 
+[node name="Line2D" type="Line2D" parent="ActionBox"]
+visible = false
+z_index = -1
+points = PackedVector2Array(2406, 249, 888, 82)
+width = 150.0
+width_curve = SubResource("Curve_yaehf")
+end_cap_mode = 2
+
 [node name="RichTextLabel" type="RichTextLabel" parent="ActionBox"]
-offset_left = 1852.0
-offset_top = 1517.0
-offset_right = 4586.0
-offset_bottom = 2643.0
+offset_left = 2374.0
+offset_top = 974.0
+offset_right = 4931.0
+offset_bottom = 1913.0
 mouse_filter = 2
 theme_override_constants/outline_size = 70
 theme_override_fonts/normal_font = ExtResource("8_5vw27")
-theme_override_font_sizes/normal_font_size = 200
-text = "Select your target"
+theme_override_font_sizes/normal_font_size = 145
+text = "Damaged Warlord of Ash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="ActionBox"]
 z_index = -1
-offset_left = 1861.0
-offset_top = -1285.0
-offset_right = 4576.0
-offset_bottom = 2702.0
+offset_left = 2292.0
+offset_top = -2015.0
+offset_right = 5007.0
+offset_bottom = 1972.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="ActionBox"]
 z_index = -1
-offset_left = 1940.0
-offset_top = -1206.0
-offset_right = 4497.0
-offset_bottom = 2623.0
+offset_left = 2371.0
+offset_top = -1936.0
+offset_right = 4928.0
+offset_bottom = 1893.0
 mouse_filter = 2
 color = Color(0.37036458, 0.37036446, 0.37036443, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="ActionBox"]
-offset_left = -5716.0
-offset_top = 3316.0
-offset_right = 4696.0
-offset_bottom = 3908.0
+offset_left = -5285.0
+offset_top = 2586.0
+offset_right = 5127.0
+offset_bottom = 3178.0
 color = Color(1, 1, 1, 0)
 
 [node name="ColorRect4" type="ColorRect" parent="ActionBox"]
-offset_left = 1829.0
-offset_top = -2059.0
-offset_right = 4696.0
-offset_bottom = 3908.0
+offset_left = 2260.0
+offset_top = -2789.0
+offset_right = 5127.0
+offset_bottom = 3178.0
 color = Color(1, 1, 1, 0)
 
 [node name="ColorRect5" type="ColorRect" parent="ActionBox"]
-offset_left = -5578.0
-offset_top = -2125.0
-offset_right = -2711.0
-offset_bottom = 3842.0
+offset_left = -5147.0
+offset_top = -2855.0
+offset_right = -2280.0
+offset_bottom = 3112.0
 color = Color(1, 1, 1, 0)
 
 [node name="Target Confirm" type="Node2D" parent="."]
@@ -559,6 +582,17 @@ offset_top = -2019.0
 offset_right = 9162.0
 offset_bottom = 3795.0
 color = Color(1, 1, 1, 0)
+
+[node name="ZoomDisplay" type="Node2D" parent="."]
+z_index = 5
+script = ExtResource("18_cegan")
+
+[node name="ColorRect" type="ColorRect" parent="ZoomDisplay"]
+offset_left = -5179.0
+offset_top = -3066.0
+offset_right = 5171.0
+offset_bottom = 3038.0
+color = Color(0, 0, 0, 0.1882353)
 
 [connection signal="pressed" from="Button" to="." method="voluntarySwap"]
 [connection signal="pressed" from="Target Confirm/yes" to="Target Confirm" method="_on_yes_pressed"]
