@@ -8,6 +8,9 @@ var placing=false
 var hovered=false
 
 @export var creature=false
+
+@export var champion=false
+
 @export var armor: int
 @export var health: int
 
@@ -17,6 +20,8 @@ var consumed=false
 
 var onField=false
 var player1=false
+
+@export var inspirationLevel:=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,12 +39,28 @@ func _ready() -> void:
 			Player1Manager.active.append(self)
 		else:
 			Player2Manager.active.append(self)
+	if(champion):
+		$"Status Counters".visible=true
+		for child in $"Status Counters".get_children():
+			child.visible=false
+		if(player1):
+			Player1Manager.champion=self
+		else:
+			Player2Manager.champion=self
 
 func player1Cost(): #If we are player one make sure we can pay for the card
 	return get_parent().get_parent().player1 and Player1Manager.actions>=GameManager.cardCosts[cardType]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if(champion and inspirationLevel!=0):
+		$"Status Counters/Inspired".visible=true
+		if(inspirationLevel!=1):
+			$"Status Counters/Inspired/RichTextLabel".text=str(inspirationLevel)
+		else:
+			$"Status Counters/Inspired/RichTextLabel".text=""
+	elif champion:
+		$"Status Counters/Inspired".visible=false
 	if(!display and hovered and Input.is_action_just_pressed("Expand")):
 		GameManager.zoom.display(self)
 	if creature:
@@ -102,4 +123,7 @@ func successfulStrike():
 	pass
 	
 func failedStrike():
+	pass
+
+func onDamaged():
 	pass

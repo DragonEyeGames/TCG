@@ -8,7 +8,15 @@ func onPlay():
 	GameManager.actionBoxText.text="Rolling to hit"
 	
 	var strike = (await GameManager.diceManager.roll_die(20))
-	strike=19
+	
+	if(Player1Manager.champion.inspirationLevel>0):
+		GameManager.actionBoxText.text="Adding " + str(Player1Manager.champion.inspirationLevel) + " from inspiration"
+		strike+=Player1Manager.champion.inspirationLevel
+		await get_tree().create_timer(1.5).timeout
+	
+	GameManager.actionBoxText.text="Final value: " + str(strike)
+	await get_tree().create_timer(1.5).timeout
+	
 	if strike==1:
 		consumed=true
 		print("FAILURE")
@@ -29,7 +37,7 @@ func onPlay():
 		GameManager.actionBoxText.text="Hit"
 	else:
 		GameManager.actionBoxText.text="Critical Hit!"
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(1).timeout
 	
 	GameManager.actionBoxText.text="Rolling for damage"
 	
@@ -45,6 +53,8 @@ func onPlay():
 	
 	prints(strike, damage)
 	await get_tree().create_timer(1).timeout
-	GameManager.actionBox.visible=false
+	if(GameManager.actionBoxText.text=="Dealt " + str(damage) + " damage"):
+		GameManager.actionBox.visible=false
+	target.onDamage()
 	SignalBus.emit_signal("strike", true, true)
 	return

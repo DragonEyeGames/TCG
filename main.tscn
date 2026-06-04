@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=24 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://dgdcpgus1668y" path="res://discard.gd" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://dkh7madmgcmk2" path="res://Cards/warlord_of_ash.tscn" id="7_dg77c"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://x0i1g28ptnop" path="res://Cards/temple_guardian.tscn" id="9_cegan"]
 [ext_resource type="Script" uid="uid://dw3j21eryho0i" path="res://actionCounter.gd" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bwlkniufsnrhm" path="res://Dice/dice_base.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://defphhknh14" path="res://Dice/dice_manager.gd" id="13_w48qg"]
@@ -159,7 +158,7 @@ zoom = Vector2(0.19, 0.19)
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(3143, 772)
 script = ExtResource("3_h2yge")
-decklist = Array[int]([1, 1, 1, 7, 7, 7, 8, 8, 8])
+decklist = Array[int]([1, 1, 1, 7, 7, 7, 8, 8, 8, 6, 6, 6])
 
 [node name="card" type="Sprite2D" parent="Deck"]
 scale = Vector2(0.45, 0.45)
@@ -261,20 +260,6 @@ offset_left = -405.0
 offset_top = 1253.0
 offset_right = 405.0
 offset_bottom = 2387.0
-interactable = false
-
-[node name="Temple Guardian" parent="Player2Field" instance=ExtResource("9_cegan")]
-offset_left = -1353.0
-offset_top = 1268.0
-offset_right = -543.0
-offset_bottom = 2402.0
-interactable = false
-
-[node name="Temple Guardian2" parent="Player2Field" instance=ExtResource("9_cegan")]
-offset_left = 555.0
-offset_top = 1207.0
-offset_right = 1365.0
-offset_bottom = 2341.0
 interactable = false
 
 [node name="Enemy Discard" type="Sprite2D" parent="."]
@@ -447,6 +432,7 @@ D6 = ExtResource("13_ycdy4")
 D20 = ExtResource("15_vivmo")
 
 [node name="ActionBox" type="Node2D" parent="."]
+visible = false
 z_index = 2
 script = ExtResource("16_yaehf")
 
@@ -584,6 +570,7 @@ offset_bottom = 3795.0
 color = Color(1, 1, 1, 0)
 
 [node name="ZoomDisplay" type="Node2D" parent="."]
+visible = false
 z_index = 5
 script = ExtResource("18_cegan")
 

@@ -11,6 +11,8 @@ var actions=3
 
 var active = []
 
+var champion
+
 func draw_card(index: int):
 	var packed_card: PackedScene = load("res://card_back.tscn")
 	var card_instance=packed_card.instantiate()

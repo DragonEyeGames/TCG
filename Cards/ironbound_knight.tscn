@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpwoh7w2xui2a"]
+[gd_scene load_steps=12 format=3 uid="uid://cpwoh7w2xui2a"]
 
 [ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_qn7yn"]
 [ext_resource type="Texture2D" uid="uid://b6kbu063878wo" path="res://Crows TCG - Card Game Template/Artwork/D (10).png" id="2_x45wt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b146iopgxk24n" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/creature.png" id="8_p4efl"]
 [ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="9_3jdly"]
 [ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="10_ramrq"]
+[ext_resource type="PackedScene" uid="uid://ycrduu3rs13o" path="res://status_counters.tscn" id="11_ncu8b"]
 
 [node name="Ironbound Knight" type="Control"]
 custom_minimum_size = Vector2(810, 1134)
@@ -19,6 +20,7 @@ anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
 script = ExtResource("1_qn7yn")
 creature = true
+champion = true
 armor = 15
 health = 18
 cardType = 2
@@ -185,6 +187,8 @@ theme_override_font_sizes/normal_font_size = 55
 text = "18"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Status Counters" parent="." instance=ExtResource("11_ncu8b")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

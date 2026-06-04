@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca8pd7frds772"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_heyke"]
+[ext_resource type="Script" uid="uid://22dodv7u46ta" path="res://Card Scripts/battle_cry.gd" id="1_5746m"]
 [ext_resource type="Texture2D" uid="uid://dasmvjiilj6n8" path="res://Crows TCG - Card Game Template/Artwork/M02.png" id="1_muvsc"]
 [ext_resource type="Texture2D" uid="uid://csj32f5k85qfj" path="res://Crows TCG - Card Game Template/Front/MIGHT.png" id="2_0hesq"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="3_v3imm"]
@@ -13,7 +13,7 @@ custom_minimum_size = Vector2(810, 1134)
 layout_mode = 3
 anchors_preset = 0
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_heyke")
+script = ExtResource("1_5746m")
 cardType = 6
 
 [node name="Picture" type="Sprite2D" parent="."]

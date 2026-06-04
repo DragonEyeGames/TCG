@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkh7madmgcmk2"]
+[gd_scene load_steps=12 format=3 uid="uid://dkh7madmgcmk2"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_hyyma"]
+[ext_resource type="Script" uid="uid://biu22gymslgle" path="res://Card Scripts/warlord_of_ash.gd" id="1_qg5rt"]
 [ext_resource type="Texture2D" uid="uid://ddpglsg8bgof3" path="res://Crows TCG - Card Game Template/Artwork/H01.png" id="2_hyyma"]
 [ext_resource type="Texture2D" uid="uid://cpim7xhv6eu8j" path="res://Crows TCG - Card Game Template/Front/CHAMPION.png" id="3_0b7q1"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_c6yw8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdawigrtykhxs" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/inspired.png" id="8_hyyma"]
 [ext_resource type="Texture2D" uid="uid://60njfdkdmfu5" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/57.png" id="9_gwh0j"]
 [ext_resource type="Texture2D" uid="uid://bhrcrm4wwd18r" path="res://Crows TCG - Card Game Template/Icons, Tokens and Counters/52.png" id="10_5ns0u"]
+[ext_resource type="PackedScene" uid="uid://ycrduu3rs13o" path="res://status_counters.tscn" id="11_qg5rt"]
 
 [node name="Warlord of Ash" type="Control"]
 custom_minimum_size = Vector2(810, 1134)
@@ -17,8 +18,9 @@ layout_mode = 3
 anchor_right = 0.421875
 anchor_bottom = 1.05
 pivot_offset = Vector2(405, 567)
-script = ExtResource("1_hyyma")
+script = ExtResource("1_qg5rt")
 creature = true
+champion = true
 armor = 11
 health = 24
 cardType = 3
@@ -184,6 +186,8 @@ theme_override_font_sizes/normal_font_size = 52
 text = "24"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Status Counters" parent="." instance=ExtResource("11_qg5rt")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

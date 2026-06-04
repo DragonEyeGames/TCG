@@ -1,8 +1,6 @@
 extends Card
 
-func successfulStrike():
-	print("Hishankah")
-	
+func onDamage():
 	var backupZ=z_index
 	var backupDisplay=display
 	var backupInteractable=interactable
@@ -16,21 +14,14 @@ func successfulStrike():
 	GameManager.actionBox.visible=true
 	GameManager.actionBoxText.text="Resolving Ability"
 	await get_tree().create_timer(1.5).timeout
-	if(player1):
-		#print(Player2Manager.active)
-		for goober in Player2Manager.active:
-			if(goober.creature):
-				GameManager.actionLine.visible=true
-				GameManager.actionLine.points[1]=goober.global_position
-				GameManager.actionLine.points[1].y+=700
-				GameManager.actionLine.points[1].x+=500
-				goober.health-=1
-				var cardName = GameManager.cards.keys()[goober.cardType]
-				cardName=cardName.replace("_", " ")
-				GameManager.actionBoxText.text="Damaged " + cardName
-				await get_tree().create_timer(1).timeout
-				GameManager.actionLine.visible=false
-				goober.onDamage()
+	
+	inspirationLevel+=1
+				
+	GameManager.actionBoxText.text="Gained 1 Inspiration"
+	await get_tree().create_timer(1).timeout
+	
+	GameManager.actionBoxText.text="Current Inspiration Level: " + str(inspirationLevel)
+	await get_tree().create_timer(1).timeout
 				
 	z_index=backupZ
 	display=backupDisplay
