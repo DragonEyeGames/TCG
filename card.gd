@@ -13,6 +13,7 @@ var hovered=false
 
 @export var armor: int
 @export var health: int
+var max_health: int
 
 @export var cardType: GameManager.cards
 
@@ -25,6 +26,7 @@ var player1=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	max_health=health
 	SignalBus.strike.connect(onStrike)
 	if("field" in str(get_parent().name).to_lower()):
 		print("Field")
@@ -125,5 +127,5 @@ func successfulStrike():
 func failedStrike():
 	pass
 
-func onDamaged():
+func onDamage():
 	pass

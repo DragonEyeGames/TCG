@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://boeoy6aj5lekt"]
 
-[ext_resource type="Script" uid="uid://e45r8matbeia" path="res://card.gd" id="1_qpq4s"]
+[ext_resource type="Script" uid="uid://0kj8mnsdyrs2" path="res://Card Scripts/quick_snack.gd" id="1_qpq4s"]
 [ext_resource type="Texture2D" uid="uid://dlyyeyg8u5x0j" path="res://Crows TCG - Card Game Template/Artwork/I07.png" id="2_3vdym"]
 [ext_resource type="Texture2D" uid="uid://bgs16lxf3yunk" path="res://Crows TCG - Card Game Template/Front/UNIVERSAL.png" id="3_buovp"]
 [ext_resource type="FontFile" uid="uid://dnetedjr54df2" path="res://dungeon-depths-font/DungeonDepths-owJWV.ttf" id="4_uccs0"]

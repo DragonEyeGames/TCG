@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene load_steps=25 format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bwlkniufsnrhm" path="res://Dice/dice_base.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://defphhknh14" path="res://Dice/dice_manager.gd" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bxnirbqfxcaua" path="res://Dice/D6.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://brpbywh3gti1h" path="res://Dice/D4.tscn" id="14_cegan"]
 [ext_resource type="PackedScene" uid="uid://chk7t1hwnkt18" path="res://Dice/D20.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dybicv6da77pn" path="res://action_box.gd" id="16_yaehf"]
 [ext_resource type="Script" uid="uid://be41jrgq3r5oy" path="res://target_confirm.gd" id="18_074og"]
@@ -158,7 +159,7 @@ zoom = Vector2(0.19, 0.19)
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(3143, 772)
 script = ExtResource("3_h2yge")
-decklist = Array[int]([1, 1, 1, 7, 7, 7, 8, 8, 8, 6, 6, 6])
+decklist = Array[int]([5, 4, 5, 4, 4, 5, 4, 5, 7, 7, 7, 7])
 
 [node name="card" type="Sprite2D" parent="Deck"]
 scale = Vector2(0.45, 0.45)
@@ -407,6 +408,7 @@ theme_override_font_sizes/font_size = 200
 text = "End Turn"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -428,6 +430,7 @@ render_target_update_mode = 4
 [node name="DiceManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4386034, 0, -0.09273815)
 script = ExtResource("13_w48qg")
+D4 = ExtResource("14_cegan")
 D6 = ExtResource("13_ycdy4")
 D20 = ExtResource("15_vivmo")
 
