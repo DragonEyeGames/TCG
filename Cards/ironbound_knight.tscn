@@ -24,6 +24,7 @@ champion = true
 armor = 15
 health = 18
 cardType = 2
+attributes = Array[int]([3, 6, 7])
 metadata/_edit_use_anchors_ = true
 
 [node name="Picture" type="Sprite2D" parent="."]

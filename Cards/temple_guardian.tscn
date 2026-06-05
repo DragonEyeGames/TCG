@@ -21,6 +21,7 @@ creature = true
 armor = 8
 health = 12
 cardType = 4
+attributes = Array[int]([3, 7, 0])
 metadata/_edit_use_anchors_ = true
 
 [node name="Picture" type="Sprite2D" parent="."]

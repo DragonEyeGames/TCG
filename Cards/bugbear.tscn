@@ -21,6 +21,7 @@ script = ExtResource("1_5mbxc")
 armor = 10
 health = 6
 cardType = 1
+attributes = Array[int]([3, 7, 0])
 metadata/_edit_use_anchors_ = true
 
 [node name="Picture" type="Sprite2D" parent="."]

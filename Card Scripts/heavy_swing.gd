@@ -3,7 +3,10 @@ extends Card
 func onPlay():
 	GameManager.actionBox.visible=true
 	GameManager.actionBoxText.text="Pick your target"
+	GameManager.targetParameters.clear()
+	GameManager.targetParameters.append(GameManager.types.creature)
 	var target = await GameManager.set_target()
+	GameManager.targetParameters.clear()
 	print(target.name)
 	GameManager.actionBoxText.text="Rolling to hit"
 	

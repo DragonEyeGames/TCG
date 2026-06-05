@@ -18,6 +18,7 @@ anchors_preset = 0
 pivot_offset = Vector2(405, 567)
 script = ExtResource("1_qpq4s")
 cardType = 5
+attributes = Array[int]([5])
 
 [node name="Picture" type="Sprite2D" parent="."]
 position = Vector2(405, 351)

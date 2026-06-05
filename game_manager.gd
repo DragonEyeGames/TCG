@@ -16,22 +16,13 @@ enum types {
 	minion,
 	equipment,
 	item,
-	permanent_arcana,
-	temporary_arcana,
-	instant_arcana,
-	champion
-}
-
-const cardTypes = {
-	cards.midas_touch: types.instant_arcana,
-	cards.bugbear: types.minion,
-	cards.ironbound_knight: types.champion,
-	cards.warlord_of_ash: types.champion,
-	cards.temple_guardian: types.minion,
-	cards.quick_snack: types.instant_arcana,
-	cards.battle_cry: types.instant_arcana,
-	cards.heavy_swing: types.instant_arcana,
-	cards.golden_opportunity: types.instant_arcana
+	permanent,
+	temporary,
+	instant,
+	champion,
+	creature,
+	player1,
+	player2
 }
 
 const cardCosts = {
@@ -53,6 +44,9 @@ var player1Turn=false
 var swapping=false
 
 var targeting=false
+
+var targetParameters: Array[types] = []
+
 var potentialTarget=null
 var target=null
 
@@ -124,7 +118,7 @@ func endTurn():
 		endTurn()
 
 func play(card: cards, scene: Card):
-	var card_type = cardTypes[card]
+	var card_type = scene.attributes[0]
 	
 	if(Player1Manager.actions-cardCosts[card]<0):
 		Player1Manager.draw_card(card)
@@ -143,10 +137,10 @@ func play(card: cards, scene: Card):
 	if(scene.consumed):
 		print("DEAD")
 	
-	if(card_type==types.instant_arcana):
+	if(card_type==types.instant):
 		Player1Manager.discard(card)
 		
-	if(card_type==types.minion):
+	if(card_type==types.permanent):
 		Player1Manager.permanent(card)
 	scene.queue_free()
 

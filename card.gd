@@ -21,8 +21,11 @@ var consumed=false
 
 var onField=false
 var player1=false
+var mouseEntered=false
 
 @export var inspirationLevel:=0
+
+@export var attributes: Array[GameManager.types] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,8 +42,10 @@ func _ready() -> void:
 		
 		if(player1):
 			Player1Manager.active.append(self)
+			attributes.append(GameManager.types.player1)
 		else:
 			Player2Manager.active.append(self)
+			attributes.append(GameManager.types.player2)
 	if(champion):
 		$"Status Counters".visible=true
 		for child in $"Status Counters".get_children():
@@ -63,7 +68,7 @@ func _process(_delta: float) -> void:
 			$"Status Counters/Inspired/RichTextLabel".text=""
 	elif champion:
 		$"Status Counters/Inspired".visible=false
-	if(!display and hovered and Input.is_action_just_pressed("Expand")):
+	if(!display and mouseEntered and Input.is_action_just_pressed("Expand")):
 		GameManager.zoom.display(self)
 	if creature:
 		$Armor/Count.text=str(armor)
@@ -95,15 +100,28 @@ func _process(_delta: float) -> void:
 func _on_mouse_entered() -> void:
 	if(display):
 		return
+	mouseEntered=true
+	if(onField and not searching()):
+		return
 	hovered=true
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2, 1.2), .1)
 	z_index=1
 
+func searching():
+	var valid=true
+	for query in GameManager.targetParameters:
+		if(!query in attributes):
+			valid=false
+			break
+	if(len(GameManager.targetParameters)==0):
+		valid=false
+	return valid
 
 func _on_mouse_exited() -> void:
 	if(display):
 		return
+	mouseEntered=false
 	hovered=false
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), .1)
