@@ -83,6 +83,13 @@ func set_target():
 	target=null
 	return backupTarget
 
+func actionSet(pos: Vector2):
+	var points = actionLine.points
+	points[1]=pos
+	points[1].y+=700
+	points[1].x+=835
+	actionLine.points=points
+
 func endTurn():
 	swapping=true
 	player1Turn=!player1Turn
@@ -117,14 +124,15 @@ func endTurn():
 		Player2Manager.actions=3
 		endTurn()
 
-func play(card: cards, scene: Card):
+func play(card: cards, scene: Card, player1: bool):
 	var card_type = scene.attributes[0]
 	
-	if(Player1Manager.actions-cardCosts[card]<0):
-		Player1Manager.draw_card(card)
-		return
+	if(player1):
+		if(Player1Manager.actions-cardCosts[card]<0):
+			Player1Manager.draw_card(card)
+			return
 	
-	Player1Manager.actions-=cardCosts[card]
+		Player1Manager.actions-=cardCosts[card]
 	
 	scene.display=true
 	scene.interactable=false
@@ -136,6 +144,10 @@ func play(card: cards, scene: Card):
 	Player1Manager.hand_lock=false
 	if(scene.consumed):
 		print("DEAD")
+	
+	if(!player1):
+		scene.queue_free()
+		return
 	
 	if(card_type==types.instant):
 		Player1Manager.discard(card)

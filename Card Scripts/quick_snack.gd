@@ -27,9 +27,7 @@ func onPlay():
 		target.health=target.max_health
 	
 	GameManager.actionLine.visible=true
-	GameManager.actionLine.points[1]=target.global_position
-	GameManager.actionLine.points[1].y+=700
-	GameManager.actionLine.points[1].x+=500
+	GameManager.actionSet(target.global_position)
 	
 	await get_tree().create_timer(1.5).timeout
 	GameManager.actionLine.visible=false

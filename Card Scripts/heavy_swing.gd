@@ -52,12 +52,16 @@ func onPlay():
 		await get_tree().create_timer(.1).timeout
 		damage += (await GameManager.diceManager.roll_die(6)) # Critical hit logic
 	
+	GameManager.actionLine.visible=true
+	GameManager.actionSet(target.global_position)
+	
 	target.health-=damage
 	
 	GameManager.actionBoxText.text="Dealt " + str(damage) + " damage"
 	
 	prints(strike, damage)
 	await get_tree().create_timer(1).timeout
+	GameManager.actionLine.visible=false
 	if(GameManager.actionBoxText.text=="Dealt " + str(damage) + " damage"):
 		GameManager.actionBox.visible=false
 	target.onDamage()

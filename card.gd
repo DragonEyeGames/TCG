@@ -20,7 +20,7 @@ var max_health: int
 var consumed=false
 
 var onField=false
-var player1=false
+@export var player1=false
 var mouseEntered=false
 
 @export var inspirationLevel:=0
@@ -32,9 +32,8 @@ func _ready() -> void:
 	max_health=health
 	SignalBus.strike.connect(onStrike)
 	if("field" in str(get_parent().name).to_lower()):
-		print("Field")
 		onField=true
-		print(name)
+		print(get_parent().name)
 		if("1" in str(get_parent().name)):
 			player1=true
 		else:
@@ -46,6 +45,14 @@ func _ready() -> void:
 		else:
 			Player2Manager.active.append(self)
 			attributes.append(GameManager.types.player2)
+	elif("cardholder" in str(get_parent().name).to_lower()):
+		if("1" in str(get_parent().get_parent().name)):
+			player1=true
+		elif("2" in str(get_parent().get_parent().name)):
+			player1=false
+		print(player1)
+	else:
+		print(get_parent().name)
 	if(champion):
 		$"Status Counters".visible=true
 		for child in $"Status Counters".get_children():
@@ -88,7 +95,8 @@ func _process(_delta: float) -> void:
 			Player1Manager.hand.get_node("CardHolder").add_child(new)
 			queue_free()
 		else:
-			GameManager.play(cardType, self)
+			prints("playing", player1)
+			GameManager.play(cardType, self, player1)
 	if(Input.is_action_just_pressed("Click") and hovered and interactable and player1Cost()):
 		var new = self.duplicate()
 		new.interactable=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3he4reml4mph"]
+[gd_scene format=3 uid="uid://d3he4reml4mph"]
 
 [ext_resource type="Texture2D" uid="uid://cxqv15iyb0ygt" path="res://Crows TCG - Card Game Template/Back/CARD BACK VERSE1.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cdnbemmv2ckeu" path="res://main.gd" id="1_5vw27"]
@@ -150,143 +150,143 @@ _data = {
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.29213488), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1014480990]
 script = ExtResource("1_5vw27")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=964596804]
 zoom = Vector2(0.19, 0.19)
 
-[node name="Deck" type="Node2D" parent="."]
+[node name="Deck" type="Node2D" parent="." unique_id=400028960]
 position = Vector2(3143, 772)
 script = ExtResource("3_h2yge")
 decklist = Array[int]([5, 4, 5, 4, 4, 5, 4, 5, 7, 7, 7, 7])
 
-[node name="card" type="Sprite2D" parent="Deck"]
+[node name="card" type="Sprite2D" parent="Deck" unique_id=1306526366]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
-[node name="Discard" type="Sprite2D" parent="."]
+[node name="Discard" type="Sprite2D" parent="." unique_id=1330295936]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(2733, 1405)
 script = ExtResource("5_kek77")
 
-[node name="Player1Field" type="Node2D" parent="." node_paths=PackedStringArray("field1", "field2", "field3")]
+[node name="Player1Field" type="Node2D" parent="." unique_id=51667734 node_paths=PackedStringArray("field1", "field2", "field3")]
 position = Vector2(0, 49)
 script = ExtResource("4_4c57u")
 field1 = NodePath("Field")
 field2 = NodePath("Field2")
 field3 = NodePath("Field3")
 
-[node name="Champion" type="Sprite2D" parent="Player1Field"]
+[node name="Champion" type="Sprite2D" parent="Player1Field" unique_id=1667751166]
 visible = false
 position = Vector2(0, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
-[node name="Equipment" type="Sprite2D" parent="Player1Field"]
+[node name="Equipment" type="Sprite2D" parent="Player1Field" unique_id=1102366665]
 visible = false
 position = Vector2(1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
-[node name="Equipment2" type="Sprite2D" parent="Player1Field"]
+[node name="Equipment2" type="Sprite2D" parent="Player1Field" unique_id=1045850320]
 visible = false
 position = Vector2(-1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0xm2m")
 
-[node name="Field" type="Sprite2D" parent="Player1Field"]
+[node name="Field" type="Sprite2D" parent="Player1Field" unique_id=1380560446]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 1820)
 texture = ExtResource("1_0xm2m")
 
-[node name="Field2" type="Sprite2D" parent="Player1Field"]
+[node name="Field2" type="Sprite2D" parent="Player1Field" unique_id=1059327473]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(1000, 1820)
 texture = ExtResource("1_0xm2m")
 
-[node name="Field3" type="Sprite2D" parent="Player1Field"]
+[node name="Field3" type="Sprite2D" parent="Player1Field" unique_id=1198830684]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-1000, 1820)
 texture = ExtResource("1_0xm2m")
 
-[node name="Ironbound Knight" parent="Player1Field" instance=ExtResource("3_kek77")]
+[node name="Ironbound Knight" parent="Player1Field" unique_id=1331601314 instance=ExtResource("3_kek77")]
 offset_left = -405.0
 offset_top = 43.0
 offset_right = 405.0
 offset_bottom = 1177.0
 interactable = false
 
-[node name="Player2Field" type="Node2D" parent="."]
+[node name="Player2Field" type="Node2D" parent="." unique_id=921508283]
 position = Vector2(0, -2634)
 
-[node name="Champion" type="Sprite2D" parent="Player2Field"]
+[node name="Champion" type="Sprite2D" parent="Player2Field" unique_id=1780198416]
 visible = false
 position = Vector2(0, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Equipment" type="Sprite2D" parent="Player2Field"]
+[node name="Equipment" type="Sprite2D" parent="Player2Field" unique_id=1626850028]
 visible = false
 position = Vector2(1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Equipment2" type="Sprite2D" parent="Player2Field"]
+[node name="Equipment2" type="Sprite2D" parent="Player2Field" unique_id=1448555492]
 visible = false
 position = Vector2(-1000, 610)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Field" type="Sprite2D" parent="Player2Field"]
+[node name="Field" type="Sprite2D" parent="Player2Field" unique_id=1325898520]
 visible = false
 position = Vector2(0, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Field2" type="Sprite2D" parent="Player2Field"]
+[node name="Field2" type="Sprite2D" parent="Player2Field" unique_id=1867058086]
 visible = false
 position = Vector2(1000, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Field3" type="Sprite2D" parent="Player2Field"]
+[node name="Field3" type="Sprite2D" parent="Player2Field" unique_id=685042347]
 visible = false
 position = Vector2(-1000, 1820.105)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Warlord of Ash" parent="Player2Field" instance=ExtResource("7_dg77c")]
+[node name="Warlord of Ash" parent="Player2Field" unique_id=1784040512 instance=ExtResource("7_dg77c")]
 offset_left = -405.0
 offset_top = 1253.0
 offset_right = 405.0
 offset_bottom = 2387.0
 interactable = false
 
-[node name="Enemy Discard" type="Sprite2D" parent="."]
+[node name="Enemy Discard" type="Sprite2D" parent="." unique_id=1463680984]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-3966, -2541)
 texture = ExtResource("3_lquwl")
 script = ExtResource("5_kek77")
 player1 = false
 
-[node name="Enemy Deck" type="Node2D" parent="."]
+[node name="Enemy Deck" type="Node2D" parent="." unique_id=774531029]
 position = Vector2(-3560, -888)
 script = ExtResource("3_h2yge")
 player1 = false
 decklist = Array[int]([1, 1, 1, 6, 6, 6, 7, 7, 7, 5, 5, 5])
 
-[node name="card" type="Sprite2D" parent="Enemy Deck"]
+[node name="card" type="Sprite2D" parent="Enemy Deck" unique_id=1176557530]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_lquwl")
 
-[node name="Hand" type="Node2D" parent="."]
+[node name="Player1Hand" type="Node2D" parent="." unique_id=1494320778]
 modulate = Color(1, 1, 1, 0.47058824)
 z_index = 1
 position = Vector2(0, 3000)
 script = ExtResource("3_1bvp3")
 
-[node name="CardHolder" type="HBoxContainer" parent="Hand"]
+[node name="CardHolder" type="HBoxContainer" parent="Player1Hand" unique_id=435874270]
 offset_left = -4583.3335
 offset_top = -521.3334
 offset_right = 4497.3335
@@ -294,18 +294,16 @@ offset_bottom = 643.6666
 mouse_filter = 2
 alignment = 1
 
-[node name="animator" type="AnimationPlayer" parent="Hand"]
-libraries = {
-&"": SubResource("AnimationLibrary_7mycd")
-}
+[node name="animator" type="AnimationPlayer" parent="Player1Hand" unique_id=474582543]
+libraries/ = SubResource("AnimationLibrary_7mycd")
 
-[node name="EnemyHand" type="Node2D" parent="."]
+[node name="Player2Hand" type="Node2D" parent="." unique_id=1578391825]
 z_index = 1
 position = Vector2(-7, -3055)
 script = ExtResource("3_1bvp3")
 player1 = false
 
-[node name="CardHolder" type="HBoxContainer" parent="EnemyHand"]
+[node name="CardHolder" type="HBoxContainer" parent="Player2Hand" unique_id=1497031020]
 offset_left = -5053.0
 offset_top = -521.3334
 offset_right = 5053.0
@@ -313,7 +311,7 @@ offset_bottom = 643.6666
 mouse_filter = 2
 alignment = 1
 
-[node name="Player1Actions" type="Control" parent="."]
+[node name="Player1Actions" type="Control" parent="." unique_id=34054176]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -4921.0
@@ -323,7 +321,7 @@ offset_bottom = 1164.0
 script = ExtResource("10_efxa6")
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Player1Actions"]
+[node name="ColorRect" type="ColorRect" parent="Player1Actions" unique_id=920529116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -332,7 +330,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Player1Actions"]
+[node name="ColorRect2" type="ColorRect" parent="Player1Actions" unique_id=816895046]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -345,7 +343,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Player1Actions"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Player1Actions" unique_id=1004110067]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -357,14 +355,14 @@ text = "Actions Left"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Player1Actions"]
+[node name="Control" type="Control" parent="Player1Actions" unique_id=1466371736]
 anchors_preset = 0
 offset_left = 628.0
 offset_top = 306.0
 offset_right = 1638.0
 offset_bottom = 938.0
 
-[node name="ColorRect" type="ColorRect" parent="Player1Actions/Control"]
+[node name="ColorRect" type="ColorRect" parent="Player1Actions/Control" unique_id=1248453955]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -373,7 +371,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Player1Actions/Control"]
+[node name="ColorRect2" type="ColorRect" parent="Player1Actions/Control" unique_id=496825744]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -386,7 +384,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.35156325, 0.3515627, 0.3515629, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Player1Actions/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Player1Actions/Control" unique_id=448676032]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -398,7 +396,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1807835176]
 offset_left = -4958.0
 offset_top = 1442.0
 offset_right = -2626.0
@@ -407,7 +405,7 @@ theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 200
 text = "End Turn"
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2785913]
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -421,25 +419,25 @@ grow_vertical = 2
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=69253557]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(10191, 5840)
 render_target_update_mode = 4
 
-[node name="DiceManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_dg77c")]
+[node name="DiceManager" parent="SubViewportContainer/SubViewport" unique_id=1812960889 instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4386034, 0, -0.09273815)
 script = ExtResource("13_w48qg")
 D4 = ExtResource("14_cegan")
 D6 = ExtResource("13_ycdy4")
 D20 = ExtResource("15_vivmo")
 
-[node name="ActionBox" type="Node2D" parent="."]
+[node name="ActionBox" type="Node2D" parent="." unique_id=881675872]
 visible = false
 z_index = 2
 script = ExtResource("16_yaehf")
 
-[node name="Line2D" type="Line2D" parent="ActionBox"]
+[node name="Line2D" type="Line2D" parent="ActionBox" unique_id=528939680]
 visible = false
 z_index = -1
 points = PackedVector2Array(2406, 249, 888, 82)
@@ -447,7 +445,7 @@ width = 150.0
 width_curve = SubResource("Curve_yaehf")
 end_cap_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ActionBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ActionBox" unique_id=1041399544]
 offset_left = 2374.0
 offset_top = 974.0
 offset_right = 4931.0
@@ -460,7 +458,7 @@ text = "Damaged Warlord of Ash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="ActionBox"]
+[node name="ColorRect" type="ColorRect" parent="ActionBox" unique_id=838289121]
 z_index = -1
 offset_left = 2292.0
 offset_top = -2015.0
@@ -469,7 +467,7 @@ offset_bottom = 1972.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="ActionBox"]
+[node name="ColorRect2" type="ColorRect" parent="ActionBox" unique_id=1945284097]
 z_index = -1
 offset_left = 2371.0
 offset_top = -1936.0
@@ -478,34 +476,33 @@ offset_bottom = 1893.0
 mouse_filter = 2
 color = Color(0.37036458, 0.37036446, 0.37036443, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="ActionBox"]
+[node name="ColorRect3" type="ColorRect" parent="ActionBox" unique_id=1609548425]
 offset_left = -5285.0
 offset_top = 2586.0
 offset_right = 5127.0
 offset_bottom = 3178.0
 color = Color(1, 1, 1, 0)
 
-[node name="ColorRect4" type="ColorRect" parent="ActionBox"]
+[node name="ColorRect4" type="ColorRect" parent="ActionBox" unique_id=1633606978]
 offset_left = 2260.0
 offset_top = -2789.0
 offset_right = 5127.0
 offset_bottom = 3178.0
 color = Color(1, 1, 1, 0)
 
-[node name="ColorRect5" type="ColorRect" parent="ActionBox"]
+[node name="ColorRect5" type="ColorRect" parent="ActionBox" unique_id=1825677371]
 offset_left = -5147.0
 offset_top = -2855.0
 offset_right = -2280.0
 offset_bottom = 3112.0
 color = Color(1, 1, 1, 0)
 
-[node name="Target Confirm" type="Node2D" parent="."]
-visible = false
+[node name="Target Confirm" type="Node2D" parent="." unique_id=266556229]
 z_index = 2
 position = Vector2(-6780, -883)
 script = ExtResource("18_074og")
 
-[node name="Line2D" type="Line2D" parent="Target Confirm"]
+[node name="Line2D" type="Line2D" parent="Target Confirm" unique_id=835748720]
 visible = false
 z_index = -1
 points = PackedVector2Array(4504, 911, 6266, 204)
@@ -513,7 +510,7 @@ width = 150.0
 width_curve = SubResource("Curve_yaehf")
 end_cap_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Target Confirm"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Target Confirm" unique_id=303148695]
 offset_left = 2026.0
 offset_top = 1366.0
 offset_right = 4432.0
@@ -527,7 +524,7 @@ Target?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Target Confirm"]
+[node name="ColorRect" type="ColorRect" parent="Target Confirm" unique_id=1997539562]
 z_index = -1
 offset_left = 1861.0
 offset_top = -1285.0
@@ -536,7 +533,7 @@ offset_bottom = 2850.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Target Confirm"]
+[node name="ColorRect2" type="ColorRect" parent="Target Confirm" unique_id=1960080815]
 z_index = -1
 offset_left = 1940.0
 offset_top = -1206.0
@@ -545,7 +542,7 @@ offset_bottom = 2741.0
 mouse_filter = 2
 color = Color(0.37036458, 0.37036446, 0.37036443, 1)
 
-[node name="yes" type="Button" parent="Target Confirm"]
+[node name="yes" type="Button" parent="Target Confirm" unique_id=588245925]
 offset_left = 2047.0
 offset_top = 2208.0
 offset_right = 2846.0
@@ -555,7 +552,7 @@ theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 120
 text = "Yes"
 
-[node name="no" type="Button" parent="Target Confirm"]
+[node name="no" type="Button" parent="Target Confirm" unique_id=1927410729]
 offset_left = 3356.0
 offset_top = 2220.0
 offset_right = 4155.0
@@ -565,19 +562,19 @@ theme_override_fonts/font = ExtResource("8_5vw27")
 theme_override_font_sizes/font_size = 120
 text = "No"
 
-[node name="ColorRect3" type="ColorRect" parent="Target Confirm"]
+[node name="ColorRect3" type="ColorRect" parent="Target Confirm" unique_id=662560687]
 offset_left = 4468.0
 offset_top = -2019.0
 offset_right = 9162.0
 offset_bottom = 3795.0
 color = Color(1, 1, 1, 0)
 
-[node name="ZoomDisplay" type="Node2D" parent="."]
+[node name="ZoomDisplay" type="Node2D" parent="." unique_id=626747085]
 visible = false
 z_index = 5
 script = ExtResource("18_cegan")
 
-[node name="ColorRect" type="ColorRect" parent="ZoomDisplay"]
+[node name="ColorRect" type="ColorRect" parent="ZoomDisplay" unique_id=1560651507]
 offset_left = -5179.0
 offset_top = -3066.0
 offset_right = 5171.0

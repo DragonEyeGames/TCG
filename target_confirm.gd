@@ -12,9 +12,11 @@ func awaitUse():
 		await get_tree().process_frame
 	visible=true
 	var card = GameManager.potentialTarget.duplicate()
+	var points = $Line2D.points
 	$Line2D.visible=true
-	$Line2D.points[1]=to_local(GameManager.potentialTarget.global_position)
-	$Line2D.points[1].y+=700
+	points[1]=to_local(GameManager.potentialTarget.global_position)
+	points[1].y+=700
+	$Line2D.points=points
 	card.display=true
 	card.scale=Vector2(2.3, 2.3)
 	card.position=Vector2(2810, -427)

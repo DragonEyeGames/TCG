@@ -21,9 +21,11 @@ func successfulStrike():
 		for goober in Player2Manager.active:
 			if(goober.creature):
 				GameManager.actionLine.visible=true
-				GameManager.actionLine.points[1]=goober.global_position
-				GameManager.actionLine.points[1].y+=700
-				GameManager.actionLine.points[1].x+=500
+				var points = GameManager.actionLine.points
+				points[1]=goober.global_position
+				points[1].y+=700
+				points[1].x+=500
+				GameManager.actionLine.points=points
 				goober.health-=1
 				var cardName = GameManager.cards.keys()[goober.cardType]
 				cardName=cardName.replace("_", " ")
