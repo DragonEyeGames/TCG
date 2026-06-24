@@ -82,6 +82,9 @@ func _process(_delta: float) -> void:
 	if(placing and Input.is_action_just_pressed("Click")):
 		if(Player1Manager.handOpen):
 			var new = self.duplicate()
+			new.interactable=true
+			new.followMouse=false
+			new.placing=false
 			Player1Manager.hand.get_node("CardHolder").add_child(new)
 			queue_free()
 		else:
